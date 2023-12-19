@@ -11,16 +11,7 @@
 
 {%  assign mainProduct = all_products['fitra']  %}
 
-<div class="product">
-  <div class="product__image-wrapper">
-    <img src="{{ mainProduct.featured_image.src | img_url: 'large' }}" alt="{{ mainProduct.featured_image.alt | escape }}">
-  </div>
-  <div class="product__info">
-    <h2 class="product__title">{{ mainProduct.title }}</h2>
-    <p class="product__price">{{ mainProduct.price | money }}</p>
-    <p class="product__description">{{ mainProduct.description }}</p>
-    <form action="/cart/add" method="post" enctype="multipart/form-data" class="product__form">
-      <input type="hidden" name="id" value="{{ mainProduct.variants.first.id }}">
-      <button type="submit" class="product__add-to-cart">Add to cart</button>
-    </form>
-  </div>
+{{ mainProduct.title }}
+{{ mainProduct.description }}
+
+{}
