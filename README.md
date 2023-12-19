@@ -39,10 +39,6 @@ Refer to the detailed documentation for guidance on configuring each aspect of y
 We welcome contributions from the community! If you'd like to help improve the LABORATORIES theme, please feel free to fork the repository, make your changes, and submit a pull request. Whether it's fixing a bug, improving functionality, or enhancing documentation, your contributions are greatly appreciated.
 
 
-## Updates
-
-We regularly update LABORATORIES with new features, improvements, and fixes. Check the 'Theme updates' section in our documentation for more information on keeping your theme up to date.
-
 ---
 
 We hope you enjoy creating an engaging online store with LABORATORIES. Thank you for choosing our theme to showcase your brand!
