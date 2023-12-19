@@ -4,6 +4,7 @@
       <a href="{{ product.url | within: collection }}">
         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
       </a>
+      #price-
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
       {{ product.price | money }}
       {% unless product.available %}
