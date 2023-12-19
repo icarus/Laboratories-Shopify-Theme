@@ -1,4 +1,4 @@
-> :warning: This theme is currently under active development. Some features may be incomplete or subject to change. Use in a production environment is at your own risk.
+> :warning: This theme is currently under active development. Some features may be incomplete or subject to change. 
 
 Welcome to LABORATORIES, a premium Shopify theme designed specifically for clothing brands with an extensive product range and multiple categories. Our theme is tailored to showcase your collections with elegance and style, providing an immersive shopping experience for your customers.
 
