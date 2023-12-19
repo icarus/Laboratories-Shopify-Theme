@@ -12,6 +12,8 @@
 {%  assign mainProduct = all_products['fitra']  %}
 
 <h1>{{ mainProduct.title }}</h1>
+{{ mainProduct.price | money }}
+{{ mainProduct.description }}
 
 {% for image in mainProduct.images %}
   <a href="{{ image.src | img_url: 'large' }}">
