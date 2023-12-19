@@ -11,8 +11,10 @@
 
   {% comment %} Description {% endcomment %}
   <div id="product-description">
+    <div class="product-title">
     <p>{{ mainProduct.title }}</p>
     {{ mainProduct.price | money }}
+    </div>
 
     <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
       <select name="id" id="productSelect">
