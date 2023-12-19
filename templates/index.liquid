@@ -6,7 +6,7 @@
       </a>
       <div class="title-price">
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        {{ product.price | money }}
+        <p>{{ product.price | money }}</p>
         {% unless product.available %}
           <br><strong>sold out</strong>
         {% endunless %}
@@ -14,4 +14,3 @@
     </div>
   {% endfor %}
 </div>
-
