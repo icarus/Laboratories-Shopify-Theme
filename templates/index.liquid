@@ -10,33 +10,34 @@
 {% endfor %} {% endcomment %}
 
 {%  assign mainProduct = all_products['fitra']  %}
+<div class="main">
+  <h1>{{ mainProduct.title }}</h1>
+  {{ mainProduct.price | money }}
+  {{ mainProduct.description }}
 
-<h1>{{ mainProduct.title }}</h1>
-{{ mainProduct.price | money }}
-{{ mainProduct.description }}
+  {% for image in mainProduct.images %}
+    <a href="{{ image.src | img_url: 'large' }}">
+      <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+    </a>
+  {% endfor %}
 
-{% for image in mainProduct.images %}
-  <a href="{{ image.src | img_url: 'large' }}">
-    <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
-  </a>
-{% endfor %}
-
-<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-  <select name="id" id="productSelect">
-    {% for variant in mainProduct.variants %}
-      {% if variant.available %}
-        <option value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money_with_currency }}
-        </option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out
-        </option>
-      {% endif %}
-    {% endfor %}
-  </select>
-  {{ current_variant.price | money }}
-  <label for="Quantity">quantity</label>
-  <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
-</form>
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+    <select name="id" id="productSelect">
+      {% for variant in mainProduct.variants %}
+        {% if variant.available %}
+          <option value="{{ variant.id }}">
+            {{ variant.title }} - {{ variant.price | money_with_currency }}
+          </option>
+        {% else %}
+          <option disabled="disabled">
+            {{ variant.title }} - sold out
+          </option>
+        {% endif %}
+      {% endfor %}
+    </select>
+    {{ current_variant.price | money }}
+    <label for="Quantity">quantity</label>
+    <input type="number" id="Quantity" name="quantity" value="1" min="1">
+    <button type="submit" name="add" id="AddToCart">Add to cart</button>
+  </form>
+  </div>
