@@ -2,7 +2,9 @@
   {% for product in collections.frontpage.products limit:24 %}
     <div class="product-grid-item">
       <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        <div class="image-container">
+          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="product-image">
+        </div>
       </a>
       <div id="title-price">
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
