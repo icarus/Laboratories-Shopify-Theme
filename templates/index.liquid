@@ -1,10 +1,6 @@
 {%  assign mainProduct = all_products['black-faded-leather-jacket']  %}
 
 <div id="product-main">
-  <h1>{{ mainProduct.title }}</h1>
-  {{ mainProduct.price | money }}
-  {{ mainProduct.description }}
-
   {% for image in mainProduct.images %}
     <a href="{{ image.src | img_url: 'large' }}">
       <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
@@ -12,7 +8,9 @@
   {% endfor %}
 
 
-  {% comment %} Add to cart {% endcomment %}
+  <h1>{{ mainProduct.title }}</h1>
+  {{ mainProduct.price | money }}
+  {{ mainProduct.description }}
 
   <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
     <select name="id" id="productSelect">
