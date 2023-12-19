@@ -15,9 +15,9 @@
 {{ mainProduct.description }}
 
 {% for image in mainProduct.images %}
-
-  <img src="{{ image | img_url: 'large' }}" />
-  
+  <a href="{{ image.src | img_url: 'large' }}">
+    <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+  </a>
 {% endfor %}
 
 <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
