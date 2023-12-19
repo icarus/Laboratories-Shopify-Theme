@@ -1,9 +1,6 @@
-// Put your styles in this file.
-// Note: "@import" rules aren’t supported.
-
 @font-face {
   font-family: 'VCR OSD Mono';
-  src: url('./fonts/VCR_OSD_MONO.ttf') format('ttf'),
+  src: url('./fonts/VCR_OSD_MONO.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +11,9 @@
 
 body {
   width: var(--width);
-  font-family: 'VCR OSD Mono', mono;
+  font-family: 'VCR OSD Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 
 .product-main {
