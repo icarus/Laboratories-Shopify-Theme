@@ -16,7 +16,7 @@
 
 {% for image in mainProduct.images %}
   <a href="{{ image.src | img_url: 'large' }}">
-    <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+    <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
   </a>
 {% endfor %}
 
