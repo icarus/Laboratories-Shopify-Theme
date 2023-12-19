@@ -10,7 +10,7 @@
 {% endfor %} {% endcomment %}
 
 {%  assign mainProduct = all_products['fitra']  %}
-<div class="main">
+<div id="product-main">
   <h1>{{ mainProduct.title }}</h1>
   {{ mainProduct.price | money }}
   {{ mainProduct.description }}
@@ -40,4 +40,4 @@
     <input type="number" id="Quantity" name="quantity" value="1" min="1">
     <button type="submit" name="add" id="AddToCart">Add to cart</button>
   </form>
-  </div>
+</div>
