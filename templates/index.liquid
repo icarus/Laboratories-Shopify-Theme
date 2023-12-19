@@ -1,5 +1,5 @@
 <div class="product-grid">
-  {% for product in collections.frontpage.products limit:6 %}
+  {% for product in collections.frontpage.products limit:24 %}
     <div class="product-grid-item">
       <a href="{{ product.url | within: collection }}">
         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
