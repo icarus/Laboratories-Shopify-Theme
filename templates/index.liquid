@@ -7,8 +7,9 @@
       <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
     </a>
   {% endfor %}
+  {% comment %} End of images {% endcomment %}
 
-
+  {% comment %} Description {% endcomment %}
   <h1>{{ mainProduct.title }}</h1>
   {{ mainProduct.price | money }}
   {{ mainProduct.description }}
@@ -32,4 +33,5 @@
     <input type="number" id="Quantity" name="quantity" value="1" min="1">
     <button type="submit" name="add" id="AddToCart">Add to cart</button>
   </form>
+  {% comment %} End of description {% endcomment %}
 </div>
