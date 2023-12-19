@@ -94,3 +94,22 @@ p {
   margin: 0;
   padding: 0;
 }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column layout */
+  gap: 20px; /* Adjust the gap size as needed */
+}
+
+.product-grid-item {
+  border: 1px solid #e1e1e1; /* Optional: adds a border around each product */
+  padding: 16px; /* Optional: adds some spacing inside each product grid item */
+  text-align: center; /* Optional: centers the text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* Stacks the grid items on top of each other on smaller screens */
+  }
+}
