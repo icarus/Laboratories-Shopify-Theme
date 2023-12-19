@@ -2,11 +2,13 @@
 
 <div id="product-main">
   {% comment %} Images {% endcomment %}
-  {% for image in mainProduct.images %}
-    <a href="{{ image.src | img_url: 'large' }}">
-      <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
-    </a>
-  {% endfor %}
+  <div id="product-gallery">
+    {% for image in mainProduct.images %}
+      <a href="{{ image.src | img_url: 'large' }}">
+        <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+      </a>
+    {% endfor %}
+  </div>
   {% comment %} End of images {% endcomment %}
 
   {% comment %} Description {% endcomment %}
