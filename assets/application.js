@@ -25,7 +25,7 @@ onCartUpdated = function() {
         $cartItemCount = $('.js-cart-item-count');
 
       $cartItemCount.text(dataCartItemCount);
-      
+      $miniCartContents.html(dataCartHtml);
     }
   })
 }
