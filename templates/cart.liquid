@@ -1,5 +1,6 @@
 <div id="cart-modal">
   <div id="cart-modal-content">
+    <div class="cart-header"></div>
     {% if cart.item_count > 0 %}
       <h1>cart</h1>
       <form action="/cart" method="post" novalidate>
@@ -43,9 +44,10 @@
         </div>
       </form>
     {% else %}
-    <div class="cart-header"></div>
+    <div class="cart-header">
       <h2>cart</h2>
       Cart is empty
     {% endif %}
+
   </div>
 </div>
