@@ -19,6 +19,7 @@
           </a>
 
           {% comment %} Info {% endcomment %}
+          <div class="cart-grid-item-content">
           <a href="{{ item.url }}">{{ item.product.title }}</a>
           {{ item.variant.title }}
           <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
