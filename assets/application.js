@@ -16,5 +16,5 @@ onCartUpdated = function() {
 }
 
 onError = function(XMLHttpRequest, textStatus) {
-
+  
 }
