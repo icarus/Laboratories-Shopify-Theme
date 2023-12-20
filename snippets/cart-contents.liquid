@@ -1,7 +1,7 @@
 {% if cart.item_count > 0 %}
   <div class="cart-header">
     <p>Your Cart</p>
-    <p class="modal-close-button last-nav-item js-close-button">Close (X)</p>
+    <p class="cart-link last-nav-item js-close-button">Close (X)</p>
   </div>
 
   <div class="cart-header cart-grid">
@@ -51,6 +51,8 @@
             {% for discount in item.discounts %}
               <p>{{ discount.title }}</p>
             {% endfor %}
+
+            <a href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{ item.id }}" class="cart-link last-nav-item">Remove</a>
           </div>
         </div>
       {% endfor %}
@@ -68,6 +70,12 @@
     </div>
   </form>
   {% else %}
-    <h2>cart</h2>
-    Cart is empty
+  <div class="cart-header">
+    <p>Your Cart</p>
+    <p class="cart-link last-nav-item js-close-button">Close (X)</p>
+  </div>
+  <div class="cart-empty">
+    <p>Your cart is empty</p>
+    <button class="js-close-button">Keep shopping</button>
+  </div>
 {% endif %}

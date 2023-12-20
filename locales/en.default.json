@@ -7,7 +7,7 @@
   },
   "cart": {
     "button": {
-      "count_html": "{{ itemCount }} items",
+      "count_html": "Cart ({{ itemCount }})",
       "close": "Close Cart"
     }
   }
