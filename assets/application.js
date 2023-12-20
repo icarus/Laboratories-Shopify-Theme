@@ -17,7 +17,7 @@ onCartUpdated = function() {
     url:'/cart',
     context: document.body,
     success: function(context) {
-      
+      let 
     }
   })
 }
