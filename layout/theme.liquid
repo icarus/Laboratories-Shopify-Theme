@@ -17,6 +17,8 @@
     {% section 'navbar' %}
     {{ content_for_layout }}
   </main>
-  {}
+  {% if template != 'cart'  %}
+    {% include 'mini-cart' %}
+  {% endif %}
 </body>
 </html>
