@@ -21,6 +21,7 @@
         {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
       {% endfor %}
     </div>
+    
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
