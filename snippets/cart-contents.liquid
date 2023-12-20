@@ -5,7 +5,7 @@
   </div>
 
   <form action="/cart" method="post" novalidate>
-    <div class="cart-lines"></div>
+    <div class="cart-lines">
       {% for item in cart.items %}
         <a href="{{ item.url | within: collections.all }}">
           <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
@@ -20,6 +20,7 @@
         {{ item.line_price | money }}
         {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
       {% endfor %}
+    </div>
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
