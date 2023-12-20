@@ -1,14 +1,30 @@
-document.querySelector('#AddToCart').forEach(form => {
-  form.addEventListener('submit', async e => {
-    e.preventDefault()
+document.getElementById('AddToCart').addEventListener('click', async (e) => {
+  e.preventDefault();
 
-    // Submit form with AJAX
-    await fetch('/card/add'), {
-      method: 'POST',
-      body: new FormData(form),
+  // Submit form with AJAX
+  const form = document.getElementById('AddToCartForm');
+  if (form) {
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('/cart/add', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Handle a successful response here, if needed
+      } else {
+        // Handle errors here
+        console.error('Error adding to cart');
+      }
+
+      // Open cart modal
+      const cartModal = document.getElementById('cart-modal');
+      if (cartModal) {
+        cartModal.classList.add('open');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
     }
-  });
-
-  // Open cart modal
-  document.querySelector('.cart-modal').classList.add('open');
+  }
 });
