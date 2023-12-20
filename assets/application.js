@@ -51,7 +51,7 @@ onCartButtonClick = function(event) {
   if (!isCartOpen) {
     openCart();
   } else {
-    closeCart();;
+    closeCart(); 
   }
 }
 
