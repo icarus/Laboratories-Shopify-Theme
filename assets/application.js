@@ -12,7 +12,10 @@ onAddToCart = function(event) {
 }
 
 onCartUpdated = function() {
-  $ajax.
+  $ajax({
+    type: 'GET',
+    url" '/cart',
+  })
 }
 
 onError = function(XMLHttpRequest, textStatus) {
