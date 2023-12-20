@@ -5,14 +5,6 @@
   </div>
 
   <form action="/cart" method="post" novalidate>
-    <table>
-      <thead>
-        <th colspan="2">Prod</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>total</th>
-      </thead>
-      <tbody>
         {% for item in cart.items %}
           <tr>
             <td>
@@ -36,8 +28,6 @@
             </td>
           </tr>
         {% endfor %}
-      </tbody>
-    </table>
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
