@@ -1,28 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var addToCartForm = document.getElementById('AddToCartForm');
+  var addToCartButton = document.getElementById('AddToCart');
 
-  if (addToCartForm) {
-    addToCartForm.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent the form from submitting normally
-      var formData = new FormData(addToCartForm);
+  if (addToCartButton) {
+    addToCartButton.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent the default action of the button
 
-      fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        if (response.ok) {
-          return response.json(); // Convert the JSON response into an object
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(data => {
-        console.log('Product added:', data);
-        openCartModal(); // Function to open the cart modal
-      })
-      .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
-      });
+      var addToCartForm = document.getElementById('AddToCartForm');
+      if (addToCartForm) {
+        var formData = new FormData(addToCartForm);
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.json(); // Convert the JSON response into an object
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+          console.log('Product added:', data);
+          openCartModal(); // Function to open the cart modal
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
+      }
     });
   }
 
@@ -31,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cartModal) {
       console.log("HOLA PIPENE");
       cartModal.style.display = 'block';
-
     }
   }
 
