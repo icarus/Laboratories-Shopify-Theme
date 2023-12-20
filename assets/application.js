@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCartButton.addEventListener('click', function(e) {
       e.preventDefault();
 
+      // Submit form with AJAX
       
     });
   }
