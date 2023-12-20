@@ -10,4 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
         method: 'POST',
         body: new FormData(form),
     });
+  }
 });
