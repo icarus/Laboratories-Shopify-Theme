@@ -304,6 +304,9 @@ html.mini-cart-open {
   main {
     position: relative;
     pointer-events: none;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 
     &::before {
       content: '';
@@ -353,8 +356,6 @@ html.mini-cart-open {
 
 .quantity-button {
   @include reset-input;
-  font-size: $line-global;
-  line-height: $line-global;
   text-align: center;
   font-weight: $type-bold;
   color: $text-color-white;
@@ -372,8 +373,6 @@ html.mini-cart-open {
 .quantity-text {
   display: inline-block;
   text-align: center;
-  min-width: $line-global;
-  margin: 0 $line-global/2;
 }
 
 #add-to-cart-button {
