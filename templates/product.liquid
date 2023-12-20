@@ -1,4 +1,4 @@
-{%  assign mainProduct = all_products['black-faded-leather-jacket']  %}
+{% assign mainProduct = product %}
 
 <div id="product-main">
   {% comment %} Images {% endcomment %}
@@ -18,7 +18,7 @@
       {{ mainProduct.price | money }}
     </div>
 
-    <div id="product-form-contaner">
+    <div id="product-form-container">
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
         <select name="id" id="productSelect">
           {% for variant in mainProduct.variants %}
@@ -33,7 +33,6 @@
             {% endif %}
           {% endfor %}
         </select>
-        {{ current_variant.price | money }}
         <button type="submit" name="add" id="AddToCart">Add to cart</button>
       </form>
     </div>
