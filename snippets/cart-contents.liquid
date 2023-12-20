@@ -25,19 +25,20 @@
               <p>{{ item.price | money }}</p>
               <p>{{ item.variant.title }}</p>
             </div>
-            <div class="visually-hidden">
-              <input type="number" class="js-quantity-field" id="{{ item.id }}" name="quantity_{{ item.id }}" value="1" min="1" {% if product.variants.size == 1 %}max="{{ product.variants.first.inventory_quantity }}"{% endif %}>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-button js-quantity-button minus" type="button" disabled>
+            
+            <div class="quantity-selector" data-item-id="{{ item.id }}">
+              <button class="quantity-button js-quantity-button minus" type="button" data-target="#Quantity-{{ item.id }}">
                 &ndash;
               </button>
-              <span class="quantity-text js-quantity-text">
-                1
+              <span class="quantity-text js-quantity-text" id="QuantityText-{{ item.id }}">
+                {{ item.quantity }}
               </span>
-              <button class="quantity-button js-quantity-button plus" type="button">
+              <button class="quantity-button js-quantity-button plus" type="button" data-target="#Quantity-{{ item.id }}">
                 +
               </button>
+            </div>
+            <div class="visually-hidden">
+              <input type="number" class="js-quantity-field" id="Quantity-{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1">
             </div>
           </div>
           <div class="cart-inline-total">
