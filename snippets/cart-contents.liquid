@@ -1,7 +1,7 @@
 {% if cart.item_count > 0 %}
   <div class="cart-header">
-  <h1>Cart</h1>
-  <button class="modal-close-button">Close (X)</button>
+    <h1>Cart</h1>
+    <button class="modal-close-button">Close (X)</button>
   </div>
 
   <form action="/cart" method="post" novalidate>
@@ -21,7 +21,7 @@
         {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
       {% endfor %}
     </div>
-    
+
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
