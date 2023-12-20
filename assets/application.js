@@ -28,13 +28,13 @@ $(document).ready(function() {
           max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
           itemId = $quantityField.data('item-id');
 
-        if ($button.hasClass('plus') && (max === null || currentQuantity < max)) {
-          $quantityField.val(currentQuantity + 1).change();
-          updateCartQuantity(itemId, currentQuantity + 1);
-        } else if ($button.hasClass('minus') && currentQuantity > 1) {
-          $quantityField.val(currentQuantity - 1).change();
-          updateCartQuantity(itemId, currentQuantity - 1);
-        }
+      if ($button.hasClass('plus') && (max === null || currentQuantity < max)) {
+        $quantityField.val(currentQuantity + 1).change();
+        updateCartQuantity(itemId, currentQuantity + 1);
+      } else if ($button.hasClass('minus') && currentQuantity > 1) {
+        $quantityField.val(currentQuantity - 1).change();
+        updateCartQuantity(itemId, currentQuantity - 1);
+      }
     },
     onQuantityFieldChange = function(event) {
       let $field = $(this),
