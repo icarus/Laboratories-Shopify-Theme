@@ -3,34 +3,26 @@ $(document).ready(function() {
 
   let
     onQuantityButtonClick = function(event) {
-      // alert('button clicked');
-      let
-        $button = $(this),
-        $form = $button.closest('form'),
-        $quantity = $form.find('.js-quantity-field'),
-        quantityValue = parseInt($quantity.val()),
-        max = $quantity.attr('max') ? parseInt($quantity.attr('max')) : null;
 
-      if ($button.hasClass('plus') && (max === null || quantityValue+1 <= max)) {
-        // do something for plus click
-        $quantity.val(quantityValue + 1).change();
-      }
-      else if ($button.hasClass('minus')) {
-        // do something for minus click
-        $quantity.val(quantityValue - 1).change();
+      let $button = $(this),
+          targetSelector = $button.data('target'),
+          $quantityField = $(targetSelector),
+          currentQuantity = parseInt($quantityField.val(), 10),
+          max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
+
+      if ($button.hasClass('plus') && (max === null || currentQuantity < max)) {
+        $quantityField.val(currentQuantity + 1).change();
+      } else if ($button.hasClass('minus') && currentQuantity > 1) {
+        $quantityField.val(currentQuantity - 1).change();
       }
     },
     onQuantityFieldChange = function(event) {
-      let
-        $field = $(this),
-        $form = $field.closest('form'),
-        $quantityText = $form.find('.js-quantity-text'),
-        shouldDisableMinus = parseInt(this.value) === 1,
-        shouldDisablePlus = parseInt(this.value) === parseInt($field.attr('max')),
-        $minusButton = $form.find('.js-quantity-button.minus'),
-        $plusButton = $form.find('.js-quantity-button.plus');
+      let $field = $(this),
+          itemId = $field.attr('id').split('-')[1],
+          newQuantity = parseInt($field.val(), 10),
+          $quantityText = $('#QuantityText-' + itemId);
 
-      $quantityText.text(this.value);
+      $quantityText.text(newQuantity);
 
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
@@ -132,6 +124,8 @@ $(document).ready(function() {
       }
     };
 
+  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
+  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
 
   $(document).on('change', '.js-variant-radio', onVariantRadioChange);
 
@@ -142,4 +136,3 @@ $(document).ready(function() {
   $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
 });
-

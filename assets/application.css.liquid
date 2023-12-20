@@ -348,3 +348,44 @@ html.mini-cart-open {
 .opacity-quarter {
   opacity: 0.25;
 }
+
+/* Quantity */
+
+.quantity-button {
+  @include reset-input;
+  font-size: $line-global;
+  line-height: $line-global;
+  text-align: center;
+  font-weight: $type-bold;
+  color: $text-color-white;
+  width: $line-global;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:not(:disabled):hover {
+    color: $white;
+  }
+}
+
+.quantity-text {
+  display: inline-block;
+  text-align: center;
+  min-width: $line-global;
+  margin: 0 $line-global/2;
+}
+
+#add-to-cart-button {
+  margin-top: $line-global;
+}
+
+/* Utility */
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
