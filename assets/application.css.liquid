@@ -181,7 +181,7 @@ p {
 /* Mini Cart Styles */
 
 #mini-cart-wrapper {
-  display: hidden;
+  display: none;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -200,16 +200,8 @@ p {
   background-color: #fff;
 }
 
-html.mini-cart-open {
-  overflow: hidden;
-
-  #mini-cart-wrapper {
-    display: block;
-  }
-
-  main {
-    pointer-events: none;
-  }
+html.mini-cart-open #mini-cart-wrapper {
+  display: block;
 }
 
 .mini-cart-contents {
