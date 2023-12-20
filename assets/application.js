@@ -45,9 +45,8 @@ closeCart = function() {
 }
 
 onCartButtonClick = function(event) {
-  event.preventDefault(); // Prevent the default link behavior
-
-  console.log("Cart link clicked");
+  event.preventDefault();
+  console.log("Cart link clicked"); // Add this line
 
   let isCartOpen = $('html').hasClass('mini-cart-open');
 
@@ -58,5 +57,9 @@ onCartButtonClick = function(event) {
   }
 }
 
-$(document).on('click', '.js-cart-link', onCartButtonClick);
+$(document).on('click', '.js-cart-link', function(event) {
+  console.log("Cart link clicked"); // Add this line
+  onCartButtonClick(event);
+});
+
 $(document).on('submit', '#AddToCartForm', onAddToCart);
