@@ -9,9 +9,9 @@
           <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
         </li>
       {% endfor %}
-      <li class="last-nav-item">
-        <a class="nav-link js-cart-item-count js-cart-link" href="/cart">Cart ({{ cart.item_count }})</a>
-      </li>
+      <a class="last-nav-item">
+        <span class="nav-link js-cart-item-count js-cart-link" href="/cart">Cart ({{ cart.item_count }})</span>
+      </a>
     </ul>
   </div>
 </nav>
