@@ -28,7 +28,6 @@
             <div class="visually-hidden">
               <input type="number" class="js-quantity-field" id="Quantity" name="quantity" value="1" min="1" {% if product.variants.size == 1 %}max="{{ product.variants.first.inventory_quantity }}"{% endif %}>
             </div>
-
             <button class="quantity-button js-quantity-button minus" type="button" disabled>
               &ndash;
             </button>
