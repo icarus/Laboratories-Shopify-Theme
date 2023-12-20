@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cartModal) {
       cartModal.style.display = 'block';
     }
-    // Here you could also include a fetch to '/cart.js' to get the updated cart contents and update the modal
   }
 
   // Close Modal
