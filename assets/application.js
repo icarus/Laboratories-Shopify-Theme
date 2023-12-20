@@ -12,7 +12,7 @@ onAddToCart = function(event) {
 }
 
 onLineRemoved = function(event) {
-  jQuery.post('/cart/change.js', {)
+  jQuery.post('/cart/change.js', { quantity: 0, id: this.dataset.id })
 }
 
 onCartUpdated = function() {
