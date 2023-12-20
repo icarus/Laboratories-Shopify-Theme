@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (addToCartForm) {
         var formData = new FormData(addToCartForm);
 
-        showCartModal(); 
+        showCartModal();
       //   fetch('/cart/add.js', {
       //     method: 'POST',
       //     body: formData
@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function showCartModal() {
     var cartModal = document.getElementById('cart-modal');
     if (cartModal) {
-      cartModal.style.display = 'block';
-      // Optionally, add a class that triggers a CSS animation for the modal opening
+      console.log("Showing cart modal");
       cartModal.classList.add('open');
     }
   }
