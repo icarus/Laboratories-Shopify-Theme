@@ -131,6 +131,20 @@ $(document).ready(function() {
         closeCart();
       }
     };
+    function updateQuantity(itemKey, isIncrement) {
+      var $quantityField = $('#updates_' + itemKey);
+      var currentQuantity = parseInt($quantityField.val());
+      var newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
+
+      // Ensure the quantity is never less than 0
+      if(newQuantity >= 0) {
+        $quantityField.val(newQuantity).change();
+      }
+    }
+    $(document).on('click', '.quantity-increase', function() {
+      var itemKey = $(this).data('item-key');
+      updateQuantity(itemKey, true);
+    });
 
 
 
