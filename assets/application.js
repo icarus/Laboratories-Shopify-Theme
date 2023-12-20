@@ -141,9 +141,15 @@ $(document).ready(function() {
         $quantityField.val(newQuantity).change();
       }
     }
+    
     $(document).on('click', '.quantity-increase', function() {
       var itemKey = $(this).data('item-key');
       updateQuantity(itemKey, true);
+    });
+
+    $(document).on('click', '.quantity-decrease', function() {
+      var itemKey = $(this).data('item-key');
+      updateQuantity(itemKey, false);
     });
 
 
