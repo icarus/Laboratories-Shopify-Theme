@@ -179,32 +179,28 @@ p {
 }
 
 /* Mini Cart Styles */
-
-#mini-cart-wrapper {
-  display: none; /* Initially hidden */
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 100vw;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.60);
-  transition: all 0.3s ease-in-out;
-  z-index: 999; /* Adjust the z-index as needed */
-}
-
 #mini-cart {
   position: fixed;
-  height: 100%;
-  top: var(--nav-height);
+  top: $header-height;
+  bottom: 0;
   right: 0;
-  width: 24.625rem;
-  background-color: #fff;
-  /* Add other styles for your mini-cart content */
+  width: 100%;
+  max-width: 380px;
+  background: $light-black;
+  display: none;
+  z-index: 1;
+
+  .mini-cart-contents {
+    overflow: auto;
+    padding: $offset-global;
+    height: 100%;
+  }
 }
 
-/* Apply styles when the mini-cart is open */
-html.mini-cart-open #mini-cart-wrapper {
-  display: block;
-}
+// Cart Toggle Styles
+html.mini-cart-open {
+  overflow: hidden;
 
-/* End of Mini Cart Styles */
+  #mini-cart {
+    display: block;
+  }
