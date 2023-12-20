@@ -132,20 +132,6 @@ $(document).ready(function() {
       }
     };
 
-    updateQuantity = function(itemKey, isIncrement) {
-      let $quantityField = $('#updates_' + itemKey);
-      let currentQuantity = parseInt($quantityField.val(), 10);
-      let newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
-
-      if (newQuantity >= 0) {
-        $quantityField.val(newQuantity).change();
-      }
-    }
-
-  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
-
-  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
-
   $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
 
   $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
@@ -158,4 +144,36 @@ $(document).ready(function() {
 
   $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
+});
+
+$(document).ready(() => {
+  let updateQuantity = (itemKey, isIncrement) => {
+    let $quantityField = $('#updates_' + itemKey);
+    let currentQuantity = parseInt($quantityField.val(), 10);
+    let newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
+
+    if (newQuantity >= 0) {
+      $quantityField.val(newQuantity).change();
+    }
+  };
+
+  let onQuantityButtonClick = (event) => {
+    let $button = $(event.currentTarget);
+    let itemKey = $button.data('item-key');
+    let isIncrement = $button.data('increment') === 'true';
+    updateQuantity(itemKey, isIncrement);
+  };
+
+  let onQuantityFieldChange = (event) => {
+    let $field = $(event.currentTarget);
+    let itemKey = $field.attr('id').split('_')[1];
+    let newQuantity = parseInt($field.val(), 10);
+
+    if (newQuantity >= 0) {
+      $field.val(newQuantity).change(); // Optionally update other elements based on this change
+    }
+  };
+
+  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
+  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
 });
