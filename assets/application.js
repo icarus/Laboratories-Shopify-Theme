@@ -45,6 +45,7 @@ $(document).ready(function() {
           $plusButton = $field.siblings('.js-quantity-button.plus');
 
       $quantityText.text(newQuantity);
+      
 
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
