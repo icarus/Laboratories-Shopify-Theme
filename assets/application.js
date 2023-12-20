@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addToCartButton.addEventListener('click', function(e) {
       e.preventDefault();
       console.log("Add to Cart button clicked");
-      showCartModal(); // Test showing the modal
+      showCartModal(); 
     });
   }
 
