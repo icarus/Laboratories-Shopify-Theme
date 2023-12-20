@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var cartModal = document.getElementById('cart-modal');
     if (cartModal) {
       cartModal.style.display = 'block';
+      
     }
   }
 
