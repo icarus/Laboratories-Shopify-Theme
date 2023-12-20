@@ -131,6 +131,7 @@ $(document).ready(function() {
         closeCart();
       }
     };
+    
     function updateQuantity(itemKey, isIncrement) {
       var $quantityField = $('#updates_' + itemKey);
       var currentQuantity = parseInt($quantityField.val());
@@ -141,7 +142,7 @@ $(document).ready(function() {
         $quantityField.val(newQuantity).change();
       }
     }
-    
+
     $(document).on('click', '.quantity-increase', function() {
       var itemKey = $(this).data('item-key');
       updateQuantity(itemKey, true);
