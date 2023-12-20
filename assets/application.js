@@ -42,13 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Close Modal
   var modalCloseButton = document.querySelector('.modal-close-button');
-  if (modalCloseButton) {
-    modalCloseButton.addEventListener('click', function() {
-      var cartModal = document.getElementById('cart-modal');
-      if (cartModal) {
-        cartModal.style.display = 'none';
-        cartModal.classList.remove('open');
-      }
-    });
-  }
+  modalCloseButton.addEventListener('click', function() {
+    var cartModal = document.getElementById('cart-modal');
+    if (cartModal) {
+      cartModal.classList.remove('open');
+    }
+  });
+
 });
