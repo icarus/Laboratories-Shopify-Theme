@@ -4,12 +4,13 @@ onAddToCart = function(event) {
   $.ajax({
     type: 'POST',
     url: '/cart/add.js',
-    data: ${this}.serialize(),
+    data: $(this).serialize(),
     dataType: 'json',
     success: onCartUpdated,
     error: onError
   });
 }
+
 
 onCartUpdated = function() {
   $ajax({
@@ -51,7 +52,7 @@ onCartButtonClick = function(event) {
   if (!isCartOpen) {
     openCart();
   } else {
-    closeCart(); 
+    closeCart();
   }
 }
 
