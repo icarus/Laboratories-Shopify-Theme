@@ -4,12 +4,11 @@ $(document).ready(function() {
   let
     onQuantityButtonClick = function(event) {
       // alert('button clicked');
-      let
-        $button = $(this),
-        $form = $button.closest('form'),
-        $quantity = $form.find('.js-quantity-field'),
-        quantityValue = parseInt($quantity.val()),
-        max = $quantity.attr('max') ? parseInt($quantity.attr('max')) : null;
+      let $button = $(this),
+          targetSelector = $button.data('target'),
+          $quantityField = $(targetSelector),
+          currentQuantity = parseInt($quantityField.val(), 10),
+          max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
 
       if ($button.hasClass('plus') && (max === null || quantityValue+1 <= max)) {
         // do something for plus click
