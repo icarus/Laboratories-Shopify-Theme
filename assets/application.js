@@ -31,7 +31,7 @@ $(document).ready(function() {
         shouldDisableMinus = parseInt(this.value) === 1,
         shouldDisablePlus = parseInt(this.value) === parseInt($field.attr('max')),
         $minusButton = $form.find('.js-quantity-button.minus[data-item-key="' + itemKey + '"]');
-        $plusButton = $form.find('.js-quantity-button.plus');
+        $plusButton = $form.find('.js-quantity-button.plus[data-item-key="' + itemKey + '"]');
 
       $quantityText.text(this.value);
 
