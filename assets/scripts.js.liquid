@@ -19,7 +19,7 @@ document.getElementById('AddToCart').addEventListener('click', async (e) => {
       }
 
       // Open cart modal
-      const cartModal = document.getElementById('cart-modal');
+      const cartModal = document.getElementByClass('.cart-modal');
       if (cartModal) {
         cartModal.classList.add('open');
       }
