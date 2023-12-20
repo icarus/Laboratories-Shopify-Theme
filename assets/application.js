@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //   var formData = new FormData(addToCartForm);
 
       showCartModal(); // Test showing the modal
-
+      console.log("Show cart shown");
         // Uncomment below to enable adding to cart
         // fetch('/cart/add.js', {
         //   method: 'POST',
