@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
           console.log('Product added:', data);
-          openCartModal(); // Function to open the cart modal
+          showCartModal(); // Directly show the cart modal
         })
         .catch(error => {
           console.error('There has been a problem with your fetch operation:', error);
@@ -30,11 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  function openCartModal() {
+  function showCartModal() {
     var cartModal = document.getElementById('cart-modal');
     if (cartModal) {
-      console.log("HOLA PIPENE");
       cartModal.style.display = 'block';
+      // Optionally, add a class that triggers a CSS animation for the modal opening
+      cartModal.classList.add('open');
     }
   }
 
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var cartModal = document.getElementById('cart-modal');
       if (cartModal) {
         cartModal.style.display = 'none';
+        cartModal.classList.remove('open');
       }
     });
   }
