@@ -1,24 +1,34 @@
-<div class="text-white">
-  {% if cart.item_count > 0 %}
+{% if cart.item_count > 0 %}
+  <div class="cart-header">
+    <h1>Cart</h1>
+    <button class="modal-close-button js-close-button">Close (X)</button>
+  </div>
 
-    <p class="ta-center">{{ 'cart.filled.title' | t }}</p>
-    <form action="/cart" method="post" novalidate>
-      <div class="cart-lines">
-        {% for item in cart.items %}
-          {% include 'line-item' %}
-        {% endfor %}
-      </div>
+  <form action="/cart" method="post" novalidate>
+    <div class="cart-lines">
+      {% for item in cart.items %}
+        <a href="{{ item.url | within: collections.all }}">
+          <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+        </a>
 
-      <div class="subtotal-line">
-        <p>{{ 'cart.filled.subtotal' | t }}</p>
-        <span class="price">{{ cart.total_price | money }}</span>
-      </div>
+        <a href="{{ item.url }}">{{ item.product.title }}</a>
+        {{ item.variant.title }}
+        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+        {{ item.price | money }}
+        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+        {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+        {{ item.line_price | money }}
+        {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+      {% endfor %}
+    </div>
 
-      <button type="submit" name="checkout">{{ 'cart.filled.button' | t }}</button>
-    </form>
-
+    <div>
+      <p>sub total : {{ cart.total_price | money }}</p>
+      <button type="submit" name="update">Update</button>
+      <button type="submit" name="checkout">Checkout</button>
+    </div>
+  </form>
   {% else %}
-    <p class="cart-empty-text ta-center">{{ 'cart.empty.title' | t }}</p>
-    <a href="/" class="button js-keep-shopping">{{ 'cart.empty.button' | t }}</a>
-  {% endif %}
-</div>
+    <h2>cart</h2>
+    Cart is empty
+{% endif %}
