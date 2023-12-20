@@ -1,65 +1,148 @@
-onAddToCart = function(event) {
-  event.preventDefault();
+// Put your applicaiton javascript here
+$(document).ready(function() {
 
-  $.ajax({
-    type: 'POST',
-    url: '/cart/add.js',
-    data: $(this).serialize(),
-    dataType: 'json',
-    success: onCartUpdated,
-    error: onError
-  });
-}
-
-
-onCartUpdated = function() {
-  $ajax({
-    type: 'GET',
-    url:'/cart',
-    context: document.body,
-    success: function(context) {
+  let
+    onQuantityButtonClick = function(event) {
+      // alert('button clicked');
       let
-        $dataCartContents = $(context).find('.js-cart-page-contents');
-        dataCartHtml = $dataCartContents.html();
-        dataCardItemCount = $dataCartContents.attr('data-cart-item-count');
-        $miniCartContents = $('.js-mini-cart-contents');
-        $cartItemCount = $('.js-cart-item-count');
+        $button = $(this),
+        $form = $button.closest('form'),
+        $quantity = $form.find('.js-quantity-field'),
+        quantityValue = parseInt($quantity.val()),
+        max = $quantity.attr('max') ? parseInt($quantity.attr('max')) : null;
 
-      $cartItemCount.text(dataCartItemCount);
-      $miniCartContents.html(dataCartHtml);
-    }
-  });
-}
+      if ($button.hasClass('plus') && (max === null || quantityValue+1 <= max)) {
+        // do something for plus click
+        $quantity.val(quantityValue + 1).change();
+      }
+      else if ($button.hasClass('minus')) {
+        // do something for minus click
+        $quantity.val(quantityValue - 1).change();
+      }
+    },
+    onQuantityFieldChange = function(event) {
+      let
+        $field = $(this),
+        $form = $field.closest('form'),
+        $quantityText = $form.find('.js-quantity-text'),
+        shouldDisableMinus = parseInt(this.value) === 1,
+        shouldDisablePlus = parseInt(this.value) === parseInt($field.attr('max')),
+        $minusButton = $form.find('.js-quantity-button.minus'),
+        $plusButton = $form.find('.js-quantity-button.plus');
 
-onError = function(XMLHttpRequest, textStatus) {
-  let data = XMLHttpRequest.responseJSON;
-  alert(data.status + ' - ' + data.message + ': ' + data.description);
-}
+      $quantityText.text(this.value);
 
-openCart = function() {
-  $('html').addClass('mini-cart-open');
-}
+      if (shouldDisableMinus) {
+        $minusButton.prop('disabled', true);
+      }
+      else if ($minusButton.prop('disabled') === true) {
+        $minusButton.prop('disabled', false);
+      }
 
-closeCart = function() {
-  $('html').removeClass('mini-cart-open');
-}
+      if (shouldDisablePlus) {
+        $plusButton.prop('disabled', true);
+      }
+      else if ($plusButton.prop('disabled') === true) {
+        $plusButton.prop('disabled', false);
+      }
+    },
+    onVariantRadioChange = function(event) {
+      let
+        $radio = $(this),
+        $form = $radio.closest('form'),
+        max = $radio.attr('data-inventory-quantity'),
+        $quantity = $form.find('.js-quantity-field'),
+        $addToCartButton = $form.find('#add-to-cart-button');
 
-onCartButtonClick = function(event) {
-  event.preventDefault();
-  console.log("Cart link clicked"); // Add this line
+      if ($addToCartButton.prop('disabled') === true) {
+        $addToCartButton.prop('disabled', false);
+      }
 
-  let isCartOpen = $('html').hasClass('mini-cart-open');
+      $quantity.attr('max', max);
 
-  if (!isCartOpen) {
-    openCart();
-  } else {
-    closeCart();
-  }
-}
+      if (parseInt($quantity.val()) > max) {
+        $quantity.val(max).change();
+      }
+    },
+    onAddToCart = function(event) {
+      event.preventDefault();
 
-$(document).on('click', '.js-cart-link', function(event) {
-  console.log("Cart link clicked"); // Add this line
-  onCartButtonClick(event);
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: onCartUpdated,
+        error: onError
+      });
+    },
+    onLineRemoved = function(event) {
+      event.preventDefault();
+
+      let
+        $removeLink = $(this),
+        removeQuery = $removeLink.attr('href').split('change?')[1];
+      $.post('/cart/change.js', removeQuery, onCartUpdated, 'json');
+    },
+    onCartUpdated = function() {
+      $.ajax({
+        type: 'GET',
+        url: '/cart',
+        context: document.body,
+        success: function(context) {
+          let
+            $dataCartContents = $(context).find('.js-cart-page-contents'),
+            dataCartHtml = $dataCartContents.html(),
+            dataCartItemCount = $dataCartContents.attr('data-cart-item-count'),
+            $miniCartContents = $('.js-mini-cart-contents'),
+            $cartItemCount = $('.js-cart-item-count');
+
+          $cartItemCount.text(dataCartItemCount);
+          $miniCartContents.html(dataCartHtml);
+
+          if (parseInt(dataCartItemCount) > 0) {
+            openCart();
+          }
+          else {
+            closeCart();
+          }
+        }
+      });
+    },
+    onError = function(XMLHttpRequest, textStatus) {
+      let data = XMLHttpRequest.responseJSON;
+      alert(data.status + ' - ' + data.message + ': ' + data.description);
+    },
+    openCart = function() {
+      $('html').addClass('mini-cart-open');
+    },
+    closeCart = function() {
+      $('html').removeClass('mini-cart-open');
+    },
+    onCartButtonClick = function(event) {
+      event.preventDefault();
+
+      let isCartOpen = $('html').hasClass('mini-cart-open');
+
+      if (!isCartOpen) {
+        openCart();
+      }
+      else {
+        closeCart();
+      }
+    };
+
+
+  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
+
+  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
+
+  $(document).on('change', '.js-variant-radio', onVariantRadioChange);
+
+  $(document).on('submit', '#add-to-cart-form', onAddToCart);
+
+  $(document).on('click', '#mini-cart .js-remove-line', onLineRemoved);
+
+  $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping', onCartButtonClick);
+
 });
-
-$(document).on('submit', '#AddToCartForm', onAddToCart);
