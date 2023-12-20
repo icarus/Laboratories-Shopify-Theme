@@ -56,3 +56,4 @@ onCartButtonClick = function(event) {
 }
 
 $(document).on('submit', '#AddToCartForm"]', onAddToCart);
+$[document].on('click', '[data-cart-button]', onCartButtonClick)
