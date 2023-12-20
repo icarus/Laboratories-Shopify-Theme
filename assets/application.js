@@ -39,4 +39,8 @@ openCart = function() {
   $('html').addClass('mini-cart-open');
 }
 
+closeCart = function() {
+  $('html').removeClass('mini-cart-open');
+}
+
 $(document).on('submit', '#AddToCartForm"]', onAddToCart);
