@@ -39,6 +39,7 @@ $(document).ready(function() {
       }
     },
     updateCartQuantity = function(itemId, newQuantity) {
+      
     },
     onVariantRadioChange = function(event) {
       let
