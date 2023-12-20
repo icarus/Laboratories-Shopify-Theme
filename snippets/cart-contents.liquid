@@ -14,10 +14,11 @@
       {% for item in cart.items %}
         <div class="cart-grid-item">
           {% comment %} Image {% endcomment %}
-          <div class="image-container"></div>
+          <div class="image-container">
             <a href="{{ item.url | within: collections.all }}">
               <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" class="cart-grid-item-image">
             </a>
+          </div>
 
           {% comment %} Info {% endcomment %}
           <div class="cart-grid-item-content">
