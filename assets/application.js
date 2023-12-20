@@ -19,6 +19,7 @@ onCartUpdated = function() {
     success: function(context) {
       let $dataCartContents = $(context).find('.js-cart-page-contents');
       dataCartHtml = $dataCartContents.html();
+      dataCardItemCount = $dataCartContents.attr('data-cart-item-count');
     }
   })
 }
