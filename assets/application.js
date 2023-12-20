@@ -132,7 +132,9 @@ $(document).ready(function() {
       }
     };
 
-
+  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
+  
+  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
 
   $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
 
@@ -166,4 +168,3 @@ $(document).ready(function() {
     updateQuantity(itemKey, isIncrement);
   });
 });
-
