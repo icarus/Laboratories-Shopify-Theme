@@ -9,10 +9,11 @@ onAddToCart = function(event) {
     success:
   })
 }
+
 onCartUpdated = function() {
 
 }
 
-onCartUpdated = function() {
+onError = function() {
 
 }
