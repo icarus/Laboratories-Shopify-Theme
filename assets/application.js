@@ -20,4 +20,4 @@ onError = function(XMLHttpRequest, textStatus) {
   alert(data.status + ' - ' + data.message + ': ' + data.description);
 }
 
-d
+$(document).on()
