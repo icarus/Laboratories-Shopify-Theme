@@ -27,19 +27,15 @@
             </div>
             {% comment %} Quantity {% endcomment %}
             <div class="quantity-selector" data-item-id="{{ item.id }}">
-              <button class="quantity-button js-quantity-button minus" type="button" data-target="#Quantity-{{ item.id }}">
+              <button class="quantity-button js-quantity-button minus" type="button" data-target="#Quantity-{{ item.id }}" data-line-item="{{ forloop.index }}">
                 -
               </button>
               <span class="quantity-text js-quantity-text" id="QuantityText-{{ item.id }}">
                 {{ item.quantity }}
               </span>
-              <button class="quantity-button js-quantity-button plus" type="button" data-target="#Quantity-{{ item.id }}">
+              <button class="quantity-button js-quantity-button plus" type="button" data-target="#Quantity-{{ item.id }}" data-line-item="{{ forloop.index }}">
                 +
               </button>
-            </div>
-
-            <div class="visually-hidden">
-              <input type="number" class="js-quantity-field" id="Quantity-{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1">
             </div>
             {% comment %} End of selector {% endcomment %}
           </div>
