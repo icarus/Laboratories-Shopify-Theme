@@ -15,30 +15,33 @@
         <div class="cart-grid-item">
           {% comment %} Image {% endcomment %}
           <a href="{{ item.url | within: collections.all }}">
-            <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }} class="cart-grid-item-image">
+            <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" class="cart-grid-item-image">
           </a>
 
           {% comment %} Info {% endcomment %}
           <div class="cart-grid-item-content">
             <div class="cart-grid-item-inside-content">
               <a href="{{ item.url }}">{{ item.product.title }}</a>
-              <p>{{ item.price | money }}</p>
               <p>{{ item.variant.title }}</p>
+              <p>{{ item.price | money }}</p>
             </div>
             <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
           </div>
-
           <div class="cart-inline-total">
-            {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-              <p>{{ item.line_price | money }}</p>
-              {% for discount in item.discounts %}{{ discount.title }}
+            {% if item.original_line_price != item.line_price %}
+              <p>{{ item.original_line_price | money_with_currency }}</p>
+            {% endif %}
+            <p>{{ item.line_price | money_with_currency }}</p>
+            {% for discount in item.discounts %}
+              <p>{{ discount.title }}</p>
             {% endfor %}
+          </div>
         </div>
       {% endfor %}
     </div>
 
-    <div>
-      <p>sub total : {{ cart.total_price | money }}</p>
+    <div class="cart-subtotal">
+      <p>Subtotal: {{ cart.total_price | money_with_currency }}</p>
       <button type="submit" name="update">Update</button>
       <button type="submit" name="checkout">Checkout</button>
     </div>
