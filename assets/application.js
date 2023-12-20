@@ -36,7 +36,7 @@ onError = function(XMLHttpRequest, textStatus) {
 }
 
 openCart = function() {
-  
+  $('html').addClass('mini-cart-open');
 }
 
 $(document).on('submit', '#AddToCartForm"]', onAddToCart);
