@@ -2,23 +2,6 @@
 $(document).ready(function() {
 
   let
-    updateCartQuantity = function(itemId, newQuantity) {
-      $.ajax({
-        type: 'POST',
-        url: '/cart/update.js',
-        data: {
-          id: itemId,
-          quantity: newQuantity
-        },
-        dataType: 'json',
-        success: function(response) {
-          console.log('Cart updated successfully');
-        },
-        error: function() {
-          console.log('Error updating cart');
-        }
-      });
-    },
     onQuantityButtonClick = function(event) {
 
       let $button = $(this),
@@ -26,14 +9,11 @@ $(document).ready(function() {
           $quantityField = $(targetSelector),
           currentQuantity = parseInt($quantityField.val(), 10),
           max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
-          itemId = $quantityField.data('item-id');
 
       if ($button.hasClass('plus') && (max === null || currentQuantity < max)) {
         $quantityField.val(currentQuantity + 1).change();
-        updateCartQuantity(itemId, currentQuantity + 1);
       } else if ($button.hasClass('minus') && currentQuantity > 1) {
         $quantityField.val(currentQuantity - 1).change();
-        updateCartQuantity(itemId, currentQuantity - 1);
       }
     },
     onQuantityFieldChange = function(event) {
@@ -41,8 +21,6 @@ $(document).ready(function() {
           itemId = $field.attr('id').split('-')[1],
           newQuantity = parseInt($field.val(), 10),
           $quantityText = $('#QuantityText-' + itemId);
-          $minusButton = $field.siblings('.js-quantity-button.minus'),
-          $plusButton = $field.siblings('.js-quantity-button.plus');
 
       $quantityText.text(newQuantity);
 
