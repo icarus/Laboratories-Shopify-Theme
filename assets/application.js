@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Submit form with AJAX
       await fetch('/cart/add', {
         method: 'POST',
-        body: new FormData(form)
+        body: new FormData(form),
     });
   }
 });
