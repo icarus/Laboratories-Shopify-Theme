@@ -15,7 +15,7 @@ onCartUpdated = function() {
   $ajax({
     type: 'GET',
     url:'/cart',
-    context
+    context: document.body,
   })
 }
 
