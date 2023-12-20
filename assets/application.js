@@ -38,6 +38,8 @@ $(document).ready(function() {
         $plusButton.prop('disabled', false);
       }
     },
+    updateCartQuantity = function(itemId, newQuantity) {
+    },
     onVariantRadioChange = function(event) {
       let
         $radio = $(this),
