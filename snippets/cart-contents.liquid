@@ -13,18 +13,19 @@
     <div class="cart-lines">
       {% for item in cart.items %}
         <div class="cart-grid-item">
-        <a href="{{ item.url | within: collections.all }}">
-          <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-        </a>
+          <a href="{{ item.url | within: collections.all }}">
+            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+          </a>
 
-        <a href="{{ item.url }}">{{ item.product.title }}</a>
-        {{ item.variant.title }}
-        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-        {{ item.price | money }}
-        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-        {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-        {{ item.line_price | money }}
-        {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+          <a href="{{ item.url }}">{{ item.product.title }}</a>
+          {{ item.variant.title }}
+          <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+          {{ item.price | money }}
+          <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+          {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+          {{ item.line_price | money }}
+          {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+        </div>
       {% endfor %}
     </div>
 
