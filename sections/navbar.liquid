@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-logo" href="{{ shop.url }}">
+      <img src="{{ 'logo.png' | asset_url }}" alt="Logo">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <ul class="navbar-nav">
+      {% for link in linklists.main-menu.links %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
