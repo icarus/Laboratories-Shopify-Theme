@@ -181,7 +181,7 @@ p {
 /* Mini Cart Styles */
 
 #mini-cart-wrapper {
-  display: hidden; /* Should be 'display: none;' */
+  display: none;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -189,6 +189,15 @@ p {
   height: 100%;
   background: rgba(0, 0, 0, 0.60);
   transition: all 0.3s ease-in-out;
+}
+
+#mini-cart {
+  position: fixed;
+  height: 100%;
+  top: var(--nav-height);
+  right: 0;
+  width: 24.625rem;
+  background-color: #fff;
 }
 
 html.mini-cart-open {
@@ -203,4 +212,9 @@ html.mini-cart-open {
   }
 }
 
-/* End of cart styles */
+.mini-cart-contents {
+  overflow: auto;
+  padding: 1.25rem;
+}
+
+/* End of Mini Cart Styles */
