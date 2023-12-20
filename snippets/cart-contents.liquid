@@ -27,7 +27,7 @@
             </div>
             <div class="quantity-selector">
               <button type="button" class="js-quantity-button" data-item-key="{{ item.key }}" data-increment="false">-</button>
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              <input type="number" class="js-quantity-field" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
               <button type="button" class="js-quantity-button" data-item-key="{{ item.key }}" data-increment="true">+</button>
             </div>
           </div>
