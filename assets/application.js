@@ -5,6 +5,6 @@ onAddToCart = function(event) {
     type: 'POST',
     url: '/cart/add.js',
     data: ${this}.serialize(),
-    dataType: 
+    dataType: 'json',
   })
 }
