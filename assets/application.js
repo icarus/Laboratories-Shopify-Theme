@@ -61,7 +61,7 @@ $(document).ready(function() {
 
       $.ajax({
         type: 'POST',
-        url: '/cart/add.js',
+        url: '/cart/add',
         data: $(this).serialize(),
         dataType: 'json',
         success: onCartUpdated,
