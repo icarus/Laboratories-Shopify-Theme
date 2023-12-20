@@ -30,7 +30,7 @@
 
           <div class="cart-grid-item-content">
             {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-              {{ item.line_price | money }}
+              <p class="last-nav-item">{{ item.line_price | money }}</p>
               {% for discount in item.discounts %}{{ discount.title }}
             {% endfor %}
         </div>
