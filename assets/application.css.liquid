@@ -185,14 +185,21 @@ p {
 }
 
 .cart-modal--active {
-  display: block;
+  left: 0;
+  opacity: 1;
+  transition: left 0s, opacity 0.2s;
 }
 
-.cart-modal .cart-modal-content {
-  background-color: #fff;
+.cart-modal-content {
+  width: 480px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  flex: 1;
+  margin-left: auto;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  width: 24.5rem;
-  height: 100%;
+  overflow: auto;
+  transition: 0.2s opacity, 0.2s transform;
+  opacity: 0;
+  transform: translateX(40px);
 }
