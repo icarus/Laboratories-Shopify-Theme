@@ -132,7 +132,16 @@ $(document).ready(function() {
       }
     };
 
-    updateQuantity
+    updateQuantity = function(itemKey, isIncrement) {
+      let
+        $quantityField = $('#updates_' + itemKey),
+        currentQuantity = parseInt($quantityField.val(), 10),
+        newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
+
+      if (newQuantity >= 0) {
+        $quantityField.val(newQuantity).change();
+      }
+    }
 
   $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
 
@@ -150,23 +159,4 @@ $(document).ready(function() {
 
   $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
-});
-
-
-$(document).ready(function() {
-  function updateQuantity(itemKey, isIncrement) {
-    var $quantityField = $('#updates_' + itemKey);
-    var currentQuantity = parseInt($quantityField.val(), 10);
-    var newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
-
-    if (newQuantity >= 0) {
-      $quantityField.val(newQuantity).change();
-    }
-  }
-
-  $(document).on('click', '.quantity-change', function() {
-    var itemKey = $(this).data('item-key');
-    var isIncrement = $(this).data('increment');
-    updateQuantity(itemKey, isIncrement);
-  });
 });
