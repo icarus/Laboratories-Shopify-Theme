@@ -41,6 +41,7 @@
                 <input type="number" class="js-quantity-field" id="Quantity-{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1">
               </div>
             </div>
+            {% comment %} End of selector {% endcomment %}
           </div>
           <div class="cart-inline-total">
             {% if item.original_line_price != item.line_price %}
