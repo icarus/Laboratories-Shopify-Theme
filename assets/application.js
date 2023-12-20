@@ -18,6 +18,7 @@ onCartUpdated = function() {
     context: document.body,
     success: function(context) {
       let $dataCartContents = $(context).find('.js-cart-page-contents');
+      dataCartHtml = $dataCartContents.html();
     }
   })
 }
