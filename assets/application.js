@@ -131,26 +131,6 @@ $(document).ready(function() {
         closeCart();
       }
     };
-    function updateQuantity(itemKey, isIncrement) {
-      var $quantityField = $('#updates_' + itemKey);
-      var currentQuantity = parseInt($quantityField.val());
-      var newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
-
-      // Ensure the quantity is never less than 0
-      if(newQuantity >= 0) {
-        $quantityField.val(newQuantity).change();
-      }
-    }
-
-    $(document).on('click', '.quantity-increase', function() {
-      var itemKey = $(this).data('item-key');
-      updateQuantity(itemKey, true);
-    });
-
-    $(document).on('click', '.quantity-decrease', function() {
-      var itemKey = $(this).data('item-key');
-      updateQuantity(itemKey, false);
-    });
 
 
 
@@ -166,4 +146,31 @@ $(document).ready(function() {
 
   $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
+});
+
+
+$(document).ready(function() {
+  // Function to update the quantity
+  function updateQuantity(itemKey, isIncrement) {
+    var $quantityField = $('#updates_' + itemKey);
+    var currentQuantity = parseInt($quantityField.val());
+    var newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
+
+    // Ensure the quantity is never less than 0
+    if (newQuantity >= 0) {
+      $quantityField.val(newQuantity).change();
+    }
+  }
+
+  // Event handler for the plus button
+  $(document).on('click', '.quantity-increase', function() {
+    var itemKey = $(this).data('item-key');
+    updateQuantity(itemKey, true);
+  });
+
+  // Event handler for the minus button
+  $(document).on('click', '.quantity-decrease', function() {
+    var itemKey = $(this).data('item-key');
+    updateQuantity(itemKey, false);
+  });
 });
