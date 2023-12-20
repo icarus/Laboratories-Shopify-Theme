@@ -1,14 +1,1 @@
-document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    await fetch('/cart/add', {
-        method: 'POST',
-        body: new FormData(form),
-    });
-
-
-    // Open Modal
-    document.querySelectorAll('.cart-modal').classList.add(--active)
-  });
-});
+document.querySelector
