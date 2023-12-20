@@ -145,13 +145,7 @@ $(document).ready(function() {
 
   $(document).on('click', '.js-cart-link', function(event) {
     event.preventDefault();
-
-    openCart = function() {
-      $('html').addClass('mini-cart-open');
-    },
-    closeCart = function() {
-      $('html').removeClass('mini-cart-open');
-    },
+    
 });
 
 
