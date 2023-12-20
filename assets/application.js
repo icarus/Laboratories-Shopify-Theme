@@ -129,7 +129,7 @@ $(document).ready(function() {
 
   $(document).on('change', '.js-variant-radio', onVariantRadioChange);
 
-  $(document).on('submit', '#AddToCart', onAddToCart);
+  $(document).on('submit', '#AddToCartForm', onAddToCart);
 
   $(document).on('click', '#mini-cart .js-remove-line', onLineRemoved);
 
