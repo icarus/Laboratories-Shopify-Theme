@@ -132,6 +132,7 @@ $(document).ready(function() {
       }
     };
 
+  
 
   $(document).on('change', '.js-variant-radio', onVariantRadioChange);
 
@@ -142,4 +143,3 @@ $(document).ready(function() {
   $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
 });
-
