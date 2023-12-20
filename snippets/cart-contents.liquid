@@ -50,7 +50,7 @@
             <p>{{ item.line_price | money }}</p>
             {% for discount in item.discounts %}
               <p>{{ discount.title }}</p>
-            {% endfor %}
+            {% endfor %} 
 
             <a href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{ item.id }}" class="cart-link">Remove</a>
           </div>
