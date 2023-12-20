@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <a class="navbar-logo" href="{{ shop.url }}" alt="{{ 'general.shop.title' | t }}>
+    <p>Laboratories</p>
+  </a>
+  <div class="navbar-menu">
+    <ul class="navbar-nav">
+      {% for link in linklists.main-menu.links %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+      {% assign cart_text = 'cart.button.count_html' | t: itemCount: cart.item_count %}
+      {% assign cart_close_text = 'cart.button.close' | t %}
+
+      <a href="/cart" class="cart-link text-link js-cart-link">
+        <span class="cart-text">{{ cart_text }}</span>
+        <span class="cart-close-text">{{ cart_close_text }}</span>
+      </a>
+    </ul>
+  </div>
+</nav>
