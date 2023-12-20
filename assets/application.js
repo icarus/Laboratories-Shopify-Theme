@@ -39,7 +39,21 @@ $(document).ready(function() {
       }
     },
     updateCartQuantity = function(itemId, newQuantity) {
-      
+      $.ajax({
+        type: 'POST',
+        url: '/cart/update.js', // Update to match your cart's update URL
+        data: {
+          id: itemId,
+          quantity: newQuantity
+        },
+        dataType: 'json',
+        success: function(response) {
+          console.log('Cart updated successfully');
+        },
+        error: function() {
+          console.log('Error updating cart');
+        }
+      });
     },
     onVariantRadioChange = function(event) {
       let
