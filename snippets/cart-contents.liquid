@@ -26,9 +26,9 @@
               <p>{{ item.variant.title }}</p>
             </div>
             <div class="quantity-selector">
-              <button type="button" class="quantity-change" data-item-key="{{ item.key }}" data-increment="false">-</button>
+              <button type="button" class="js-quantity-button" data-item-key="{{ item.key }}" data-increment="false">-</button>
               <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-              <button type="button" class="quantity-change" data-item-key="{{ item.key }}" data-increment="true">+</button>
+              <button type="button" class="js-quantity-button" data-item-key="{{ item.key }}" data-increment="true">+</button>
             </div>
           </div>
           <div class="cart-inline-total">
