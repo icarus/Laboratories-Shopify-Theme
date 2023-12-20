@@ -133,16 +133,13 @@ $(document).ready(function() {
     };
 
 
-  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
-
-  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
-
   $(document).on('change', '.js-variant-radio', onVariantRadioChange);
 
   $(document).on('submit', '#add-to-cart-form', onAddToCart);
 
   $(document).on('click', '#mini-cart .js-remove-line', onLineRemoved);
 
-  $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping', onCartButtonClick);
+  $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
 });
+

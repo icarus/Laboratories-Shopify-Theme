@@ -1,30 +1,57 @@
 {% if cart.item_count > 0 %}
   <div class="cart-header">
-    <h1>Cart</h1>
-    <button class="modal-close-button js-close-button">Close (X)</button>
+    <p>Your Cart</p>
+    <p class="modal-close-button last-nav-item js-close-button">Close (X)</p>
   </div>
 
-  <form action="/cart" method="post" novalidate>
+  <div class="cart-header cart-grid">
+    <p>Product</p>
+    <p class="last-nav-item">Total</p>
+  </div>
+
+  <form action="/cart" method="post" class="cart-form" novalidate>
     <div class="cart-lines">
       {% for item in cart.items %}
-        <a href="{{ item.url | within: collections.all }}">
-          <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-        </a>
+        <div class="cart-grid-item">
+          {% comment %} Image {% endcomment %}
+          <a href="{{ item.url | within: collections.all }}">
+            <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" class="cart-grid-item-image">
+          </a>
 
-        <a href="{{ item.url }}">{{ item.product.title }}</a>
-        {{ item.variant.title }}
-        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-        {{ item.price | money }}
-        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-        {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-        {{ item.line_price | money }}
-        {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+          {% comment %} Info {% endcomment %}
+          <div class="cart-grid-item-content">
+            <div class="cart-grid-item-inside-content">
+              <a href="{{ item.url }}">{{ item.product.title }}</a>
+              <p>{{ item.price | money }}</p>
+              <p>{{ item.variant.title }}</p>
+            </div>
+            <div class="quantity-selector">
+              <button type="button" class="js-quantity-button" data-item-key="{{ item.key }}" data-increment="false">-</button>
+              <input type="number" class="js-quantity-field" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              <button type="button" class="js-quantity-button" data-item-key="{{ item.key }}" data-increment="true">+</button>
+            </div>
+          </div>
+          <div class="cart-inline-total">
+            {% if item.original_line_price != item.line_price %}
+              <p>{{ item.original_line_price | money }}</p>
+            {% endif %}
+            <p>{{ item.line_price | money }}</p>
+            {% for discount in item.discounts %}
+              <p>{{ discount.title }}</p>
+            {% endfor %}
+          </div>
+        </div>
       {% endfor %}
     </div>
 
-    <div>
-      <p>sub total : {{ cart.total_price | money }}</p>
-      <button type="submit" name="update">Update</button>
+    <div class="cart-bottom">
+      <div class="cart-subtotal">
+        <div class="subtotal-text">
+          <p>Subtotal</p>
+          <p class="last-nav-item">{{ cart.total_price | money_with_currency }}</p>
+        </div>
+        <p class="opacity-quarter">TAX INCLUDED. SHIPPING CALCULATED AT CHECKOUT.</p>
+      </div>
       <button type="submit" name="checkout">Checkout</button>
     </div>
   </form>
