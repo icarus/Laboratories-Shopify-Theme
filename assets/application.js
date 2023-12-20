@@ -8,8 +8,7 @@ onAddToCart = function(event) {
     dataType: 'json',
     success: onCartUpdated,
     error: onError
-  };
-  );
+  });
 }
 
 onCartUpdated = function() {
