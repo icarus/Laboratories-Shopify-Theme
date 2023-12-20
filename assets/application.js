@@ -26,6 +26,7 @@ $(document).ready(function() {
           $quantityField = $(targetSelector),
           currentQuantity = parseInt($quantityField.val(), 10),
           max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
+          itemId = $quantityField.data('item-id');
 
       if ($button.hasClass('plus') && (max === null || currentQuantity < max)) {
         $quantityField.val(currentQuantity + 1).change();
