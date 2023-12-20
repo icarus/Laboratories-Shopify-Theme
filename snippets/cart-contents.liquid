@@ -4,6 +4,11 @@
     <p class="modal-close-button last-nav-item js-close-button">Close (X)</p>
   </div>
 
+  <div class="cart-header cart-grid">
+    <p>Your Cart</p>
+    <p class="modal-close-button last-nav-item js-close-button">Close (X)</p>
+  </div>
+
   <form action="/cart" method="post" novalidate>
     <div class="cart-lines">
       {% for item in cart.items %}
