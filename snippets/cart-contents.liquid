@@ -45,8 +45,8 @@
     </div>
 
     <div class="cart-header cart-bottom">
-      <p>Subtotal: {{ cart.total_price | money_with_currency }}</p>
-      <button type="submit" name="update">Update</button>
+      Subtotal
+      <p>{{ cart.total_price | money_with_currency }}</p>
       <button type="submit" name="checkout">Checkout</button>
     </div>
   </form>
