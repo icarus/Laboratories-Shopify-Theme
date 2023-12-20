@@ -1,12 +1,12 @@
 document.getElementById('AddToCart').addEventListener('click', async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Prevent the default form submission behavior
 
   // Submit form with AJAX
   const form = document.getElementById('AddToCartForm');
   if (form) {
     try {
       const formData = new FormData(form);
-      const response = await fetch('/cart/add', {
+      const response = await fetch('/cart/add.js', { // Use '/cart/add.js' to add to cart via AJAX
         method: 'POST',
         body: formData,
       });
