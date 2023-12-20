@@ -3,20 +3,17 @@ $(document).ready(function() {
 
   let
     onQuantityButtonClick = function(event) {
-    
+
       let $button = $(this),
           targetSelector = $button.data('target'),
           $quantityField = $(targetSelector),
           currentQuantity = parseInt($quantityField.val(), 10),
           max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
 
-      if ($button.hasClass('plus') && (max === null || quantityValue+1 <= max)) {
-        // do something for plus click
-        $quantity.val(quantityValue + 1).change();
-      }
-      else if ($button.hasClass('minus')) {
-        // do something for minus click
-        $quantity.val(quantityValue - 1).change();
+      if ($button.hasClass('plus') && (max === null || currentQuantity < max)) {
+        $quantityField.val(currentQuantity + 1).change();
+      } else if ($button.hasClass('minus') && currentQuantity > 1) {
+        $quantityField.val(currentQuantity - 1).change();
       }
     },
     onQuantityFieldChange = function(event) {
