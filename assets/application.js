@@ -6,12 +6,10 @@ $(document).ready(function() {
       // alert('button clicked');
       let
         $button = $(this),
-        itemKey = $button.data('item-key');
         $form = $button.closest('form'),
-        $quantityField = $form.find('#quantity_' + itemKey);
         $quantity = $form.find('.js-quantity-field'),
-        quantityValue = parseInt($quantityField.val(), 10);
-        max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
+        quantityValue = parseInt($quantity.val()),
+        max = $quantity.attr('max') ? parseInt($quantity.attr('max')) : null;
 
       if ($button.hasClass('plus') && (max === null || quantityValue+1 <= max)) {
         // do something for plus click
@@ -25,15 +23,12 @@ $(document).ready(function() {
     onQuantityFieldChange = function(event) {
       let
         $field = $(this),
-        itemKey = $field.attr('id').split('_')[1];
         $form = $field.closest('form'),
         $quantityText = $form.find('.js-quantity-text'),
         shouldDisableMinus = parseInt(this.value) === 1,
         shouldDisablePlus = parseInt(this.value) === parseInt($field.attr('max')),
-        $minusButton = $form.find('.js-quantity-button.minus[data-item-key="' + itemKey + '"]');
-        $plusButton = $form.find('.js-quantity-button.plus[data-item-key="' + itemKey + '"]');
-        quantityValue = parseInt($field.val(), 10);
-        max = $field.attr('max') ? parseInt($field.attr('max'), 10) : null;
+        $minusButton = $form.find('.js-quantity-button.minus'),
+        $plusButton = $form.find('.js-quantity-button.plus');
 
       $quantityText.text(this.value);
 
@@ -137,7 +132,7 @@ $(document).ready(function() {
       }
     };
 
-  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
+    $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
 
   $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
 
