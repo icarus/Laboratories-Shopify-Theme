@@ -1,9 +1,5 @@
 <nav class="navbar">
-<<<<<<<< HEAD:snippets/navbar.liquid
-  <a class="navbar-logo" href="{{ shop.url }}" title="{{ 'general.shop.title' | t }}">
-========
-  <a class="navbar-logo" href="{{ shop.url }}" alt="{{ 'general.shop.title' | t }}>
->>>>>>>> 3c9e5273f3fa8caabd9e265c9b2cfcb54602d7ef:sections/navbar.liquid
+  <a class="navbar-logo" href="{{ shop.url }}" alt="{{ 'general.shop.title' | t }}">
     <p>Laboratories</p>
   </a>
   <div class="navbar-menu">
@@ -14,17 +10,10 @@
         </li>
       {% endfor %}
       {% assign cart_text = 'cart.button.count_html' | t: itemCount: cart.item_count %}
-<<<<<<<< HEAD:snippets/navbar.liquid
-
-      <a href="/cart" class="cart-link text-link js-cart-link">
-        <span class="cart-text">{{ cart_text }}</span>
-========
-      {% assign cart_close_text = 'cart.button.close' | t %}
 
       <a href="/cart" class="cart-link text-link js-cart-link">
         <span class="cart-text">{{ cart_text }}</span>
         <span class="cart-close-text">{{ cart_close_text }}</span>
->>>>>>>> 3c9e5273f3fa8caabd9e265c9b2cfcb54602d7ef:sections/navbar.liquid
       </a>
     </ul>
   </div>
