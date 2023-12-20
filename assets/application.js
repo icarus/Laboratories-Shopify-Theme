@@ -48,7 +48,11 @@ onCartButtonClick = function(event) {
 
   let isCartOpen = $('html').hasClass('mini-cart-open');
 
-  if (!isCartOpen) {}
+  if (!isCartOpen) {
+    openCart();
+  } else {
+    closeCart();;
+  }
 }
 
 $(document).on('submit', '#AddToCartForm"]', onAddToCart);
