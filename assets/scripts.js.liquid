@@ -13,15 +13,15 @@ document.getElementById('AddToCart').addEventListener('click', async (e) => {
 
       if (response.ok) {
         // Handle a successful response here, if needed
+
+        // Open cart modal after a successful response
+        const cartModal = document.querySelector('.cart-modal');
+        if (cartModal) {
+          cartModal.classList.add('open');
+        }
       } else {
         // Handle errors here
         console.error('Error adding to cart');
-      }
-
-      // Open cart modal
-      const cartModal = document.getElementByClass('.cart-modal');
-      if (cartModal) {
-        cartModal.classList.add('open');
       }
     } catch (error) {
       console.error('An error occurred:', error);
