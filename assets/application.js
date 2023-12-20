@@ -8,6 +8,7 @@ $(document).ready(function() {
         $button = $(this),
         itemKey = $button.data('item-key');
         $form = $button.closest('form'),
+        $quantityField = $form.find('#quantity_' + itemKey);
         $quantity = $form.find('.js-quantity-field'),
         quantityValue = parseInt($quantity.val()),
         max = $quantity.attr('max') ? parseInt($quantity.attr('max')) : null;
