@@ -5,7 +5,7 @@ document.querySelector('form[action="/cart/add"').forEach(form => {
     // Submit form with AJAX
     fetch('/card/add'), {
       method: 'POST',
-      
+      body: new FormData(form),
     }
   });
 });
