@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (addToCartButton) {
     addToCartButton.addEventListener('click', function(e) {
+      e.preventDefault();
       console.log("Add to Cart button clicked");
-      e.preventDefault(); // Prevent the default action of the button
 
       // Uncomment below when ready to use
       // var addToCartForm = document.getElementById('AddToCartForm');
       // if (addToCartForm) {
       //   var formData = new FormData(addToCartForm);
 
-        showCartModal(); // Test showing the modal
+      showCartModal(); // Test showing the modal
 
         // Uncomment below to enable adding to cart
         // fetch('/cart/add.js', {
