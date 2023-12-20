@@ -25,6 +25,7 @@ $(document).ready(function() {
     onQuantityFieldChange = function(event) {
       let
         $field = $(this),
+        itemKey = $field.attr('id').split('_')[1];
         $form = $field.closest('form'),
         $quantityText = $form.find('.js-quantity-text'),
         shouldDisableMinus = parseInt(this.value) === 1,
