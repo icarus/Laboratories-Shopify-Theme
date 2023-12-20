@@ -6,6 +6,7 @@ $(document).ready(function() {
       // alert('button clicked');
       let
         $button = $(this),
+        itemKey = $button.data('item-key');
         $form = $button.closest('form'),
         $quantity = $form.find('.js-quantity-field'),
         quantityValue = parseInt($quantity.val()),
