@@ -1,24 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+  // Function to open the cart modal
   function openCartModal() {
-    document.getElementById('cartModal').style.display = 'block';
-
-    Shopify.getCart(function(cart) {
-      // You need to render cart.liquid into the modal. You might need Shopify API or jQuery to load the content dynamically
-    });
+    document.getElementById('cart-modal').style.display = 'block';
   }
 
+  // Function to close the cart modal
   function closeCartModal() {
-    document.getElementById('cartModal').style.display = 'none';
+    document.getElementById('cart-modal').style.display = 'none';
   }
 
-  document.querySelector('.cart-modal-close').addEventListener('click', closeCartModal);
-
+  // Event listener for the cart button to open the modal
   document.getElementById('cartButton').addEventListener('click', openCartModal);
 
-  document.querySelectorAll('form[action="/cart/add"]').forEach(function(form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-    });
-  });
+  // Assuming you have a close button inside your modal with the id 'closeCartModalButton'
+  document.getElementById('closeCartModalButton').addEventListener('click', closeCartModal);
+
+  // Add more event listeners as needed for AJAX add to cart actions
 });
