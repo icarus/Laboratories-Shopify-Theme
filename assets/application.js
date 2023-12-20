@@ -10,8 +10,8 @@ $(document).ready(function() {
         $form = $button.closest('form'),
         $quantityField = $form.find('#quantity_' + itemKey);
         $quantity = $form.find('.js-quantity-field'),
-        quantityValue = parseInt($quantity.val()),
-        max = $quantity.attr('max') ? parseInt($quantity.attr('max')) : null;
+        quantityValue = parseInt($quantityField.val(), 10);
+        max = $quantityField.attr('max') ? parseInt($quantityField.attr('max'), 10) : null;
 
       if ($button.hasClass('plus') && (max === null || quantityValue+1 <= max)) {
         // do something for plus click
