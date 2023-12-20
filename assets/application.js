@@ -131,13 +131,6 @@ $(document).ready(function() {
         closeCart();
       }
     };
-    function quantityChange(itemKey, delta) {
-      var input = document.getElementById('updates_' + itemKey);
-      var currentValue = parseInt(input.value) || 0; // Default to 0 if input.value is not a number
-      if (currentValue + delta >= 0) { // Prevent the quantity from going below 0
-        input.value = currentValue + delta;
-      }
-    }
 
 
 
