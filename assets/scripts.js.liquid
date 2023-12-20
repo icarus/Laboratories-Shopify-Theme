@@ -1,9 +1,9 @@
 document.querySelector('form[action="/cart/add"').forEach(form => {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault()
 
     // Submit form with AJAX
-    fetch('/card/add'), {
+    await fetch('/card/add'), {
       method: 'POST',
       body: new FormData(form),
     }
