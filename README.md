@@ -10,8 +10,6 @@ Welcome to LABORATORIES, a premium Shopify theme designed specifically for cloth
 - **Advanced Filtering**: Enable customers to easily filter products by type, size, color, and more.
 - **Lookbook Functionality**: Create stunning lookbook pages to inspire your customers and showcase your outfits.
 - **Quick Shop**: Allow customers to quickly view product details and add to cart without leaving their current page.
-- **SEO Optimized**: Built with the best SEO practices to help drive traffic to your store.
-- **Documentation and Support**: Comprehensive documentation to help you set up and customize your theme, with dedicated support for any questions or issues.
 
 ## Installation
 
@@ -19,7 +17,7 @@ To install the LABORATORIES theme on your Shopify store, follow these steps:
 
 1. Go to your Shopify Admin panel.
 2. Click on 'Online Store' and then 'Themes'.
-3. Click 'Upload Theme' and select the `laboratoriestheme.zip` file.
+3. Click 'Upload Theme' and select the `laboratories.zip` file.
 4. Once uploaded, click 'Actions' > 'Publish' to apply the theme to your store.
 
 ## Configuration
