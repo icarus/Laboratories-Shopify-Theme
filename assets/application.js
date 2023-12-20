@@ -41,6 +41,8 @@ $(document).ready(function() {
           itemId = $field.attr('id').split('-')[1],
           newQuantity = parseInt($field.val(), 10),
           $quantityText = $('#QuantityText-' + itemId);
+          $minusButton = $field.siblings('.js-quantity-button.minus'),
+          $plusButton = $field.siblings('.js-quantity-button.plus');
 
       $quantityText.text(newQuantity);
 
