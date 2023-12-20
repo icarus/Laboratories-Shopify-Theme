@@ -25,7 +25,11 @@
               <p>{{ item.price | money }}</p>
               <p>{{ item.variant.title }}</p>
             </div>
-            <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+            <div class="quantity-selector">
+              <button type="button" onclick="quantityChange('{{ item.key }}', -1)">-</button>
+              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              <button type="button" onclick="quantityChange('{{ item.key }}', 1)">+</button>
+            </div>
           </div>
           <div class="cart-inline-total">
             {% if item.original_line_price != item.line_price %}
