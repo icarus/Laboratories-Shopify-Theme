@@ -169,7 +169,7 @@ p {
   justify-content: space-between;
 }
 
-.cart-modal {
+.cart-drawer {
   position: fixed;
   top: 0;
   left: -9999px;
@@ -184,14 +184,14 @@ p {
   transition: left 0s 0.2s, opacity 0.2s;
 }
 
-.open {
+.cart-drawer--active {
   left: 0;
   opacity: 1;
   transition: left 0s, opacity 0.2s;
 }
 
-.cart-modal-content {
-  width: 24.5rem;
+.cart-drawer-box {
+  width: 480px;
   background: #f5f5f5;
   border-radius: 12px;
   flex: 1;
@@ -202,4 +202,9 @@ p {
   transition: 0.2s opacity, 0.2s transform;
   opacity: 0;
   transform: translateX(40px);
+}
+
+.cart-drawer--active .cart-drawer-box {
+  transform: none;
+  opacity: 1;
 }
