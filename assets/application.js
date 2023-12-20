@@ -29,8 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function openCartModal() {
     var cartModal = document.getElementById('cart-modal');
     if (cartModal) {
+      console.log("HOLA PIPENE");
       cartModal.style.display = 'block';
-      
+
     }
   }
 
