@@ -6,5 +6,7 @@ onAddToCart = function(event) {
     url: '/cart/add.js',
     data: ${this}.serialize(),
     dataType: 'json',
+    success:
   })
 }
+on 
