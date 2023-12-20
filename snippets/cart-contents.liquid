@@ -22,8 +22,8 @@
           <div class="cart-grid-item-content">
             <div class="cart-grid-item-inside-content">
               <a href="{{ item.url }}">{{ item.product.title }}</a>
-              <p>{{ item.variant.title }}</p>
               <p>{{ item.price | money }}</p>
+              <p>{{ item.variant.title }}</p>
             </div>
             <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
           </div>
