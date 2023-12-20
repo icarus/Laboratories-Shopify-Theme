@@ -133,14 +133,14 @@ $(document).ready(function() {
     };
 
     updateQuantity = function(itemKey, isIncrement) {
-      let
-        $quantityField = $('#updates_' + itemKey),
-        currentQuantity = parseInt($quantityField.val(), 10),
-        newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
+      let updateQuantity = (itemKey, isIncrement) => {
+        let $quantityField = $('#updates_' + itemKey);
+        let currentQuantity = parseInt($quantityField.val(), 10);
+        let newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
 
-      if (newQuantity >= 0) {
-        $quantityField.val(newQuantity).change();
-      }
+        if (newQuantity >= 0) {
+          $quantityField.val(newQuantity).change();
+        }
     }
 
   $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
