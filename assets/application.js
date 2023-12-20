@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (addToCartButton) {
     addToCartButton.addEventListener('click', function() {
       var cartModal = document.getElementById('cart-modal');
-      if (cartModal) {
-        cartModal.classList.add('open');
-      }
+      cartModal.classList.add('open');
     });
   }
 });
