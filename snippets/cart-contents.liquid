@@ -26,15 +26,13 @@
               <p>{{ item.variant.title }}</p>
             </div>
             <div class="visually-hidden">
-              <input type="number" class="js-quantity-field" id="Quantity" name="quantity" value="1" min="1" {% if product.variants.size == 1 %}max="{{ product.variants.first.inventory_quantity }}"{% endif %}>
+              <input type="number" class="js-quantity-field" id="updates_{{ item.key }}" name="quantity" value="{{ item.quantity }}" min="1" {% if product.variants.size == 1 %}max="{{ product.variants.first.inventory_quantity }}"{% endif %}>
             </div>
-            <button class="quantity-button js-quantity-button minus" type="button" disabled>
+            <button class="quantity-button js-quantity-button minus" type="button" data-item-key="{{ item.key }}" disabled>
               &ndash;
             </button>
-            <span class="quantity-text js-quantity-text">
-              1
-            </span>
-            <button class="quantity-button js-quantity-button plus" type="button">
+            <span class="quantity-text js-quantity-text">{{ item.quantity }}</span>
+            <button class="quantity-button js-quantity-button plus" type="button" data-item-key="{{ item.key }}">
               +
             </button>
           </div>
