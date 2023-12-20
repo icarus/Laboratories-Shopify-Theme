@@ -35,4 +35,8 @@ onError = function(XMLHttpRequest, textStatus) {
   alert(data.status + ' - ' + data.message + ': ' + data.description);
 }
 
+openCart = function() {
+  
+}
+
 $(document).on('submit', '#AddToCartForm"]', onAddToCart);
