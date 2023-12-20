@@ -2,7 +2,7 @@ onAddToCart = function(event) {
   event.preventDefault();
 
   $.ajax({
-    type: "POST",
+    type: 'POST',
     url: '/cart/add.js'
   })
 }
