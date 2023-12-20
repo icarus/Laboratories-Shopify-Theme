@@ -16,6 +16,9 @@ onCartUpdated = function() {
     type: 'GET',
     url:'/cart',
     context: document.body,
+    success: function(context) {
+      
+    }
   })
 }
 
