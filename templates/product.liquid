@@ -1,46 +1,49 @@
-{%  assign mainProduct = all_products['black-faded-leather-jacket']  %}
+{% for product in collections.all.products %}
+  {% assign mainProduct = product %}
 
-<div id="product-main">
-  {% comment %} Images {% endcomment %}
-  <div id="product-gallery">
-    {% for image in mainProduct.images %}
-      <a href="{{ image.src | img_url: 'large' }}">
-        <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
-      </a>
-    {% endfor %}
+  <div id="product-main-{{ mainProduct.handle }}">
+    {% comment %} Images {% endcomment %}
+    <div id="product-gallery-{{ mainProduct.handle }}">
+      {% for image in mainProduct.images %}
+        <a href="{{ image.src | img_url: 'large' }}">
+          <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+        </a>
+      {% endfor %}
+    </div>
+    {% comment %} End of images {% endcomment %}
+
+    {% comment %} Description {% endcomment %}
+    <div id="product-bottom-{{ mainProduct.handle }}">
+      <div id="product-title-{{ mainProduct.handle }}">
+        <p>{{ mainProduct.title }}</p>
+        {{ mainProduct.price | money }}
+      </div>
+
+      <div id="product-form-container-{{ mainProduct.handle }}">
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm-{{ mainProduct.handle }}">
+          <select name="id" id="productSelect-{{ mainProduct.handle }}">
+            {% for variant in mainProduct.variants %}
+              {% if variant.available %}
+                <option value="{{ variant.id }}">
+                  {{ variant.title }} - {{ variant.price | money_with_currency }}
+                </option>
+              {% else %}
+                <option disabled="disabled">
+                  {{ variant.title }} - sold out
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          {{ current_variant.price | money }}
+          <button type="submit" name="add" id="AddToCart-{{ mainProduct.handle }}">Add to cart</button>
+        </form>
+      </div>
+
+      <div id="product-description-{{ mainProduct.handle }}">
+        {{ mainProduct.description }}
+      </div>
+    </div>
+    {% comment %} End of description {% endcomment %}
   </div>
-  {% comment %} End of images {% endcomment %}
 
-  {% comment %} Description {% endcomment %}
-  <div id="product-bottom">
-    <div id="product-title">
-      <p>{{ mainProduct.title }}</p>
-      {{ mainProduct.price | money }}
-    </div>
-
-    <div id="product-form-contaner">
-      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-        <select name="id" id="productSelect">
-          {% for variant in mainProduct.variants %}
-            {% if variant.available %}
-              <option value="{{ variant.id }}">
-                {{ variant.title }} - {{ variant.price | money_with_currency }}
-              </option>
-            {% else %}
-              <option disabled="disabled">
-                {{ variant.title }} - sold out
-              </option>
-            {% endif %}
-          {% endfor %}
-        </select>
-        {{ current_variant.price | money }}
-        <button type="submit" name="add" id="AddToCart">Add to cart</button>
-      </form>
-    </div>
-
-    <div id="product-description">
-      {{ mainProduct.description }}
-    </div>
-  </div>
-  {% comment %} End of description {% endcomment %}
-</div>
+{% endfor %}
