@@ -37,6 +37,10 @@
                 +
               </button>
             </div>
+
+            <div class="visually-hidden">
+              <input type="number" class="js-quantity-field" id="Quantity-{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1">
+            </div>
             {% comment %} End of selector {% endcomment %}
           </div>
           <div class="cart-inline-total">
