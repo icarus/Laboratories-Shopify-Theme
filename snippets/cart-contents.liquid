@@ -22,8 +22,8 @@
           <div class="cart-grid-item-content">
             <div class="cart-grid-item-inside-content">
               <a href="{{ item.url }}">{{ item.product.title }}</a>
-              {{ item.price | money }}
-              {{ item.variant.title }}
+              <p>{{ item.price | money }}</p>
+              <p></p>{{ item.variant.title }}
             </div>
             <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
             {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
