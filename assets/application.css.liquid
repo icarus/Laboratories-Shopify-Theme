@@ -181,7 +181,7 @@ p {
 /* Mini Cart Styles */
 
 #mini-cart-wrapper {
-  display: none;
+  display: none; /* Initially hidden */
   position: fixed;
   bottom: 0;
   right: 0;
@@ -189,6 +189,7 @@ p {
   height: 100%;
   background: rgba(0, 0, 0, 0.60);
   transition: all 0.3s ease-in-out;
+  z-index: 999; /* Adjust the z-index as needed */
 }
 
 #mini-cart {
@@ -198,15 +199,13 @@ p {
   right: 0;
   width: 24.625rem;
   background-color: #fff;
+  /* Add other styles for your mini-cart content */
 }
 
-html.mini-cart-open {
+/* Apply styles when the mini-cart is open */
+html.mini-cart-open #mini-cart-wrapper {
   display: block;
-}+
-
-.mini-cart-contents {
-  overflow: auto;
-  padding: 1.25rem;
 }
 
 /* End of Mini Cart Styles */
+
