@@ -15,7 +15,7 @@
         <div class="cart-grid-item">
           {% comment %} Image {% endcomment %}
           <a href="{{ item.url | within: collections.all }}">
-            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+            <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
           </a>
 
           {% comment %} Info {% endcomment %}
