@@ -132,6 +132,27 @@ $(document).ready(function() {
       }
     };
 
+    function updateQuantity(itemKey, isIncrement) {
+      var $quantityField = $('#updates_' + itemKey);
+      var currentQuantity = parseInt($quantityField.val());
+      var newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
+
+      // Ensure the quantity is never less than 0
+      if(newQuantity >= 0) {
+        $quantityField.val(newQuantity).change();
+      }
+    }
+
+    $(document).on('click', '.quantity-increase', function() {
+      var itemKey = $(this).data('item-key');
+      updateQuantity(itemKey, true);
+    });
+
+    $(document).on('click', '.quantity-decrease', function() {
+      var itemKey = $(this).data('item-key');
+      updateQuantity(itemKey, false);
+    });
+
 
 
   $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
@@ -146,25 +167,4 @@ $(document).ready(function() {
 
   $(document).on('click', '.js-cart-link, #mini-cart .js-keep-shopping, .js-close-button', onCartButtonClick);
 
-});
-
-function updateQuantity(itemKey, isIncrement) {
-  var $quantityField = $('#updates_' + itemKey);
-  var currentQuantity = parseInt($quantityField.val());
-  var newQuantity = isIncrement ? currentQuantity + 1 : currentQuantity - 1;
-
-  // Ensure the quantity is never less than 0
-  if(newQuantity >= 0) {
-    $quantityField.val(newQuantity).change();
-  }
-}
-
-$(document).on('click', '.quantity-increase', function() {
-  var itemKey = $(this).data('item-key');
-  updateQuantity(itemKey, true);
-});
-
-$(document).on('click', '.quantity-decrease', function() {
-  var itemKey = $(this).data('item-key');
-  updateQuantity(itemKey, false);
 });
