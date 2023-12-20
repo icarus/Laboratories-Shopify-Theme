@@ -48,5 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
       cartModal.classList.remove('open');
     }
   });
-
 });
