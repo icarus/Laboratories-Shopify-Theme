@@ -17,16 +17,12 @@ $(document).ready(function() {
       }
     },
     onQuantityFieldChange = function(event) {
-      let
-        $field = $(this),
-        $form = $field.closest('form'),
-        $quantityText = $form.find('.js-quantity-text'),
-        shouldDisableMinus = parseInt(this.value) === 1,
-        shouldDisablePlus = parseInt(this.value) === parseInt($field.attr('max')),
-        $minusButton = $form.find('.js-quantity-button.minus'),
-        $plusButton = $form.find('.js-quantity-button.plus');
+      let $field = $(this),
+          itemId = $field.attr('id').split('-')[1],
+          newQuantity = parseInt($field.val(), 10),
+          $quantityText = $('#QuantityText-' + itemId);
 
-      $quantityText.text(this.value);
+      $quantityText.text(newQuantity);
 
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
