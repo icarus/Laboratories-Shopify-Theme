@@ -3,6 +3,8 @@ onAddToCart = function(event) {
 
   $.ajax({
     type: 'POST',
-    url: '/cart/add.js'
+    url: '/cart/add.js',
+    data: ${this}.serialize(),
+    dataType: 
   })
 }
