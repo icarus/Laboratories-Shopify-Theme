@@ -66,6 +66,7 @@ $(document).ready(function() {
     },
     onAddToCart = function(event) {
       event.preventDefault();
+      event.stopImmediatePropagation();
 
       $.ajax({
         type: 'POST',
