@@ -1,8 +1,10 @@
 <div id="cart-modal">
   <div id="cart-modal-content">
     {% if cart.item_count > 0 %}
+      {% comment %} Heading {% endcomment %}
       <div class="cart-header">
-      <h1>cart</h1>
+      <h1>Cart</h1>
+      
       </div>
 
       <form action="/cart" method="post" novalidate>
