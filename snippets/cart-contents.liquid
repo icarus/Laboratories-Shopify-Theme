@@ -46,10 +46,12 @@
 
     <div class="cart-bottom">
       <div class="cart-subtotal">
-        <p>Subtotal</p>
-        <p class="last-nav-item">{{ cart.total_price | money_with_currency }}</p>
+        <div class="subtotal-text">
+          <p>Subtotal</p>
+          <p class="last-nav-item">{{ cart.total_price | money_with_currency }}</p>
+        </div>
+        <p class="opacity-quarter">TAX INCLUDED. SHIPPING CALCULATED AT CHECKOUT.</p>
       </div>
-      <p class="opacity-quarter">TAX INCLUDED. SHIPPING CALCULATED AT CHECKOUT.</p>
       <button type="submit" name="checkout">Checkout</button>
     </div>
   </form>
