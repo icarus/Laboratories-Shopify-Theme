@@ -20,4 +20,4 @@ onError = function(XMLHttpRequest, textStatus) {
   alert(data.status + ' - ' + data.message + ': ' + data.description);
 }
 
-$(document).on('submit', 'form[action^="/cart/add"]', onAddToCart);
+$(document).on('submit', '#AddToCartForm"]', onAddToCart);
