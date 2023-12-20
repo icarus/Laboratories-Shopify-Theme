@@ -27,7 +27,7 @@ onCartUpdated = function() {
       $cartItemCount.text(dataCartItemCount);
       $miniCartContents.html(dataCartHtml);
     }
-  })
+  });
 }
 
 onError = function(XMLHttpRequest, textStatus) {
