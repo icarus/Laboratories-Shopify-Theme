@@ -1,36 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var addToCartButton = document.getElementById('AddToCart');
+document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  if (addToCartButton) {
-    addToCartButton.addEventListener('click', async function(e) {
-      e.preventDefault(); // Prevent the default button click behavior
-
-      // Submit form with AJAX
-      const form = document.getElementById('AddToCartForm');
-      if (form) {
-        try {
-          const formData = new FormData(form);
-          const response = await fetch('/cart/add.js', {
-            method: 'POST',
-            body: formData,
-          });
-
-          if (response.ok) {
-            // Handle a successful response here, if needed
-
-            // Open cart modal after a successful response
-            const cartModal = document.querySelector('.cart-modal');
-            if (cartModal) {
-              cartModal.classList.add('open');
-            }
-          } else {
-            // Handle errors here
-            console.error('Error adding to cart');
-          }
-        } catch (error) {
-          console.error('An error occurred:', error);
-        }
-      }
+    await fetch('/cart/add', {
+        method: 'POST',
+        body: new FormData(form),
     });
-  }
+
+
+    // Open Modal
+    document.querySelectorAll
+  });
 });
