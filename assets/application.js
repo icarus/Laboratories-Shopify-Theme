@@ -10,24 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
       if (addToCartForm) {
         var formData = new FormData(addToCartForm);
 
-        fetch('/cart/add.js', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (response.ok) {
-            return response.json(); // Convert the JSON response into an object
-          }
-          throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-          console.log('Product added:', data);
-          showCartModal(); // Directly show the cart modal
-        })
-        .catch(error => {
-          console.error('There has been a problem with your fetch operation:', error);
-        });
-      }
+        showCartModal(); 
+      //   fetch('/cart/add.js', {
+      //     method: 'POST',
+      //     body: formData
+      //   })
+      //   .then(response => {
+      //     if (response.ok) {
+      //       return response.json(); // Convert the JSON response into an object
+      //     }
+      //     throw new Error('Network response was not ok.');
+      //   })
+      //   .then(data => {
+      //     console.log('Product added:', data);
+      //     showCartModal(); // Directly show the cart modal
+      //   })
+      //   .catch(error => {
+      //     console.error('There has been a problem with your fetch operation:', error);
+      //   });
+      // }
     });
   }
 
