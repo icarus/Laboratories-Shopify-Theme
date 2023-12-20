@@ -9,4 +9,10 @@ onAddToCart = function(event) {
     success:
   })
 }
-on 
+onCartUpdated = function() {
+
+}
+
+onCartUpdated = function() {
+
+}
