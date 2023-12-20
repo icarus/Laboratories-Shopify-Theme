@@ -225,12 +225,20 @@ p {
 
   input {
     -webkit-appearance: none;
+    -moz-appearance: textfield; 
     width: 1rem;
     outline: none;
     border: none;
     text-align: center;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 }
+
 
 .cart-grid-item-content {
   display: flex;
