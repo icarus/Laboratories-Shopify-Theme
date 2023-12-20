@@ -46,7 +46,7 @@ closeCart = function() {
 onCartButtonClick = function(event) {
   event.preventDefault();
 
-  
+  let isCartOpen = 
 }
 
 $(document).on('submit', '#AddToCartForm"]', onAddToCart);
