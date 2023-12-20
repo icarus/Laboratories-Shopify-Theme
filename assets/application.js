@@ -6,28 +6,31 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log("Add to Cart button clicked");
       e.preventDefault(); // Prevent the default action of the button
 
-      var addToCartForm = document.getElementById('AddToCartForm');
-      if (addToCartForm) {
-        var formData = new FormData(addToCartForm);
+      // Uncomment below when ready to use
+      // var addToCartForm = document.getElementById('AddToCartForm');
+      // if (addToCartForm) {
+      //   var formData = new FormData(addToCartForm);
 
-        showCartModal();
-      //   fetch('/cart/add.js', {
-      //     method: 'POST',
-      //     body: formData
-      //   })
-      //   .then(response => {
-      //     if (response.ok) {
-      //       return response.json(); // Convert the JSON response into an object
-      //     }
-      //     throw new Error('Network response was not ok.');
-      //   })
-      //   .then(data => {
-      //     console.log('Product added:', data);
-      //     showCartModal(); // Directly show the cart modal
-      //   })
-      //   .catch(error => {
-      //     console.error('There has been a problem with your fetch operation:', error);
-      //   });
+        showCartModal(); // Test showing the modal
+
+        // Uncomment below to enable adding to cart
+        // fetch('/cart/add.js', {
+        //   method: 'POST',
+        //   body: formData
+        // })
+        // .then(response => {
+        //   if (response.ok) {
+        //     return response.json(); // Convert the JSON response into an object
+        //   }
+        //   throw new Error('Network response was not ok.');
+        // })
+        // .then(data => {
+        //   console.log('Product added:', data);
+        //   showCartModal(); // Show the cart modal
+        // })
+        // .catch(error => {
+        //   console.error('There has been a problem with your fetch operation:', error);
+        // });
       // }
     });
   }
@@ -40,12 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Close Modal
+  // Close Modal - Check if the button exists
   var modalCloseButton = document.querySelector('.modal-close-button');
-  modalCloseButton.addEventListener('click', function() {
-    var cartModal = document.getElementById('cart-modal');
-    if (cartModal) {
-      cartModal.classList.remove('open');
-    }
-  });
+  if (modalCloseButton) {
+    modalCloseButton.addEventListener('click', function() {
+      var cartModal = document.getElementById('cart-modal');
+      if (cartModal) {
+        cartModal.classList.remove('open');
+      }
+    });
+  }
 });
