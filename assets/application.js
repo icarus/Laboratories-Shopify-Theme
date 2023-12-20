@@ -11,6 +11,23 @@ onAddToCart = function(event) {
   });
 }
 
+onLineRemoved = function(event) {
+  event.preventDefault();
+
+  let
+    $removeLink = $(this),
+    removeQuery = $removeLink.attr('href').split('change?')[1];
+
+  $.ajax({
+    type: 'POST',
+    url: '/cart/change.js',
+    data: removeQuery,
+    dataType: 'json',
+    success: onCartUpdated,
+    error: onError
+  });
+}
+
 onCartUpdated = function() {
   $ajax({
     type: 'GET',
