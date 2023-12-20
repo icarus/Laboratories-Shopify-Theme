@@ -13,10 +13,12 @@
     <div class="cart-lines">
       {% for item in cart.items %}
         <div class="cart-grid-item">
+          {% comment %} Image {% endcomment %}
           <a href="{{ item.url | within: collections.all }}">
             <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
           </a>
 
+          {% comment %} Info {% endcomment %}
           <a href="{{ item.url }}">{{ item.product.title }}</a>
           {{ item.variant.title }}
           <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
