@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
 
       // Submit form with AJAX
-      
+      await fetch('/cart/add', {
     });
   }
 });
