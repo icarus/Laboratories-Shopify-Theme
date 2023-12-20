@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (addToCartButton) {
     addToCartButton.addEventListener('click', function(e) {
+      console.log("Add to Cart button clicked");
       e.preventDefault(); // Prevent the default action of the button
 
       var addToCartForm = document.getElementById('AddToCartForm');
