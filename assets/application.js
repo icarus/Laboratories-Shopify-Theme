@@ -132,9 +132,6 @@ $(document).ready(function() {
       }
     };
 
-  $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
-
-  $(document).on('change', '.js-quantity-field', onQuantityFieldChange);
 
   $(document).on('change', '.js-variant-radio', onVariantRadioChange);
 
