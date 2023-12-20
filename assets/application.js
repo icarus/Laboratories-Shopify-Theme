@@ -11,10 +11,6 @@ onAddToCart = function(event) {
   });
 }
 
-onLineRemoved = function(event) {
-  jQuery.post('/cart/change.js', { quantity: 1, line: 1 })
-}
-
 onCartUpdated = function() {
   $ajax({
     type: 'GET',
