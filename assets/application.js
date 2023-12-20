@@ -46,7 +46,6 @@ closeCart = function() {
 
 onCartButtonClick = function(event) {
   event.preventDefault();
-
   console.log("Cart link clicked"); // Add this line
 
   let isCartOpen = $('html').hasClass('mini-cart-open');
