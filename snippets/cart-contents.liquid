@@ -28,7 +28,7 @@
             <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
           </div>
 
-          <div class="cart-grid-item-content cart-inline-total">
+          <div class="cart-inline-total">
             {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
               <p>{{ item.line_price | money }}</p>
               {% for discount in item.discounts %}{{ discount.title }}
