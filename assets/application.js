@@ -12,7 +12,7 @@ onAddToCart = function(event) {
 }
 
 onCartUpdated = function() {
-
+  alert('cart is updated');
 }
 
 onError = function() {
