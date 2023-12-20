@@ -131,7 +131,6 @@ $(document).ready(function() {
         closeCart();
       }
     };
-
     function updateQuantity(itemKey, isIncrement) {
       var $quantityField = $('#updates_' + itemKey);
       var currentQuantity = parseInt($quantityField.val());
