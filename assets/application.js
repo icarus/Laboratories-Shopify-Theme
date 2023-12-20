@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   let
     onQuantityButtonClick = function(event) {
-      // alert('button clicked');
+    
       let $button = $(this),
           targetSelector = $button.data('target'),
           $quantityField = $(targetSelector),
