@@ -29,6 +29,7 @@
       {% endif %}
 
       <!-- Page Number Links -->
+      <div class="numbers">
       {% for part in paginate.parts %}
         {% if part.is_link %}
           <a href="{{ part.url }}">{{ part.title }}</a>
@@ -36,6 +37,7 @@
           <span>{{ part.title }}</span>
         {% endif %}
       {% endfor %}
+      </div>
 
       <!-- Next Page Link -->
       {% if paginate.next %}
