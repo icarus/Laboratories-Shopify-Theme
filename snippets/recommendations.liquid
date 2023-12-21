@@ -1,6 +1,6 @@
 <div class="product-recommendations">
   <p>You may also like</p>
-  <div class="product-grid">
+  <div class="recommendations-grid">
     {% for product in collections.all.products limit:6 %}
       <div class="product-grid-item">
         <a href="{{ product.url }}" title="{{ product.title | escape }}">
