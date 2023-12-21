@@ -336,26 +336,29 @@ p {
 
 
 /* Cart Toggle Styles */
-html.mini-cart-open #mini-cart {
-  display: block;
-  right: 0; /* Slide in */
-}
+html.mini-cart-open {
+  overflow: hidden;
 
-main {
-  position: relative;
-  pointer-events: none;
-
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
+  #mini-cart {
+    display: block;
     right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Darken background */
+  }
+
+  main {
+    position: relative;
     pointer-events: none;
-    z-index: 1;
-    transition: opacity 0.5s ease; /* Smooth transition for background */
+
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+      z-index: 1;
+    }
   }
 }
 
