@@ -18,7 +18,7 @@ $(document).ready(function() {
     },
     onQuantityFieldChange = function(event) {
       let $field = $(this),
-          itemId = $field.data('item-id'),
+          itemId = $field.attr('id').split('-')[1],
           newQuantity = parseInt($field.val(), 10),
           $quantityText = $('#QuantityText-' + itemId);
 
