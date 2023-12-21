@@ -210,6 +210,13 @@ main {
   gap: 1.5rem;
   grid-template-columns: repeat(6, 1fr);
 
+  .product-grid-item image-container {
+    position: relative;
+    width: 100%; /* Full width of the grid column */
+    padding-top: 125%; /* 5/4 = 1.25 or 125% */
+    overflow: hidden;
+  }
+
   .product-grid-item img {
     max-width: 100%;
     height: auto;
