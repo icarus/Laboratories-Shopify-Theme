@@ -1,0 +1,16 @@
+{% if product_recommendations.products.size > 0 %}
+  <div class="product-recommendations">
+    <h2>Recommended Products</h2>
+    <div class="product-grid">
+      {% for product in product_recommendations.products limit:6 %}
+        <div class="product-grid-item">
+          <a href="{{ product.url }}" title="{{ product.title | escape }}">
+            <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title | escape }}">
+            <p>{{ product.title }}</p>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
