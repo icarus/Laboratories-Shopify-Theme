@@ -24,6 +24,30 @@ $(document).ready(function() {
 
       $quantityText.text(newQuantity);
 
+      $.ajax({
+        type: 'POST',
+        url: '/cart/update.js',
+        data: {
+          id: itemId,
+          quantity: newQuantity
+        },
+        dataType: 'json',
+        success: function(response) {
+          // Debugging: Log the response
+          console.log('Cart update response:', response);
+
+          if (response.item_count !== undefined) {
+            $cartItemCount.text(response.item_count);
+          } else {
+            console.error('Item count not found in response:', response);
+          }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          console.error('Error updating cart:', textStatus, errorThrown);
+          alert('Error updating cart. Please try again.');
+        }
+      });
+
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
       }
