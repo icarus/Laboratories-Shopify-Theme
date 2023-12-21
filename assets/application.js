@@ -18,11 +18,9 @@ $(document).ready(function() {
     },
     onQuantityFieldChange = function(event) {
       let $field = $(this),
-          itemId = $field.attr('id').split('-')[1],
-          newQuantity = parseInt($field.val(), 10),
-          $quantityText = $('#QuantityText-' + itemId);
+          itemId = $field.data('item-id'), // Assuming the field has a data attribute for the item ID
+          newQuantity = parseInt($field.val(), 10);
 
-      $quantityText.text(newQuantity);
 
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
