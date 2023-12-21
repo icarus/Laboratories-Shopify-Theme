@@ -192,6 +192,30 @@ main {
   justify-content: space-between;
 }
 
+/* Product Recommendations */
+.product-recommendations .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.product-recommendations .product-grid-item {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .product-recommendations .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-recommendations .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Footer Styles */
 .footer {
   padding: 6rem 0rem 1.5rem 0rem;
