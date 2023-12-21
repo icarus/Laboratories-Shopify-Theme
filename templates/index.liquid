@@ -20,6 +20,15 @@
 
   <div class="pagination">
     {% if paginate.pages > 1 %}
+
+      <!-- Previous Page Link -->
+      {% if paginate.previous %}
+        <a href="{{ paginate.previous.url }}" class="prev">Previous</a>
+      {% else %}
+        <span class="disabled">Previous</span>
+      {% endif %}
+
+      <!-- Page Number Links -->
       {% for part in paginate.parts %}
         {% if part.is_link %}
           <a href="{{ part.url }}">{{ part.title }}</a>
@@ -27,6 +36,15 @@
           <span>{{ part.title }}</span>
         {% endif %}
       {% endfor %}
+
+      <!-- Next Page Link -->
+      {% if paginate.next %}
+        <a href="{{ paginate.next.url }}" class="next">Next</a>
+      {% else %}
+        <span class="disabled">Next</span>
+      {% endif %}
+
     {% endif %}
   </div>
+
 {% endpaginate %}
