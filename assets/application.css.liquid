@@ -290,16 +290,17 @@ main {
 
 .pagination a {
   margin: 0 0.5rem;
-  text-decoration: underline;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .pagination span {
   margin: 0 0.5rem;
   transition: all var(--transition-ease);
 
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 
