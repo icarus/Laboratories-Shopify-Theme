@@ -26,7 +26,7 @@ $(document).ready(function() {
 
       $.ajax({
         type: 'POST',
-        url: '/cart/update.js',
+        url: '/cart/add',
         data: {
           id: itemId,
           quantity: newQuantity
