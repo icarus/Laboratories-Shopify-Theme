@@ -18,11 +18,32 @@ $(document).ready(function() {
     },
     onQuantityFieldChange = function(event) {
       let $field = $(this),
-          itemId = $field.attr('id').split('-')[1],
+          itemId = $field.data('item-id'), // Assuming each quantity field has a data attribute with the item ID
           newQuantity = parseInt($field.val(), 10),
-          $quantityText = $('#QuantityText-' + itemId);
+          $quantityText = $('#QuantityText-' + itemId),
+          $cartItemCount = $('.js-cart-item-count'); // The selector for the cart item count in the UI
 
       $quantityText.text(newQuantity);
+
+      // Trigger an AJAX call to update the server-side cart
+      $.ajax({
+        type: 'POST',
+        url: '/cart/update.js', // The URL for the cart update endpoint
+        data: {
+          id: itemId, // The unique identifier for the cart item
+          quantity: newQuantity // The new quantity
+        },
+        dataType: 'json',
+        success: function(response) {
+          // Assuming the response contains the updated cart item count
+          $cartItemCount.text(response.item_count);
+          // You can also update other parts of the UI as necessary here
+        },
+        error: function(XMLHttpRequest, textStatus) {
+          // Handle errors (e.g., item stock issues, server errors)
+          alert('Error updating cart. Please try again.');
+        }
+      });
 
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
