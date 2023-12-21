@@ -1,17 +1,14 @@
-
-{% if product_recommendations.products.size > 0 %}
-  <div class="product-recommendations">
-    <h2>You may also like</h2>
-    <div class="product-grid">
-      {% for product in product_recommendations.products limit:6 %}
-        <div class="product-grid-item">
-          <a href="{{ product.url }}" title="{{ product.title | escape }}">
-            <img src="{{ product.featured_image | img_url: '400x500' }}" alt="{{ product.title | escape }}">
-            <p>{{ product.title }}</p>
-            <p>{{ product.price | money }}</p>
-          </a>
-        </div>
-      {% endfor %}
-    </div>
+<div class="product-recommendations">
+  <p>You may also like</p>
+  <div class="product-grid">
+    {% for product in collections.all.products limit:6 %}
+      <div class="product-grid-item">
+        <a href="{{ product.url }}" title="{{ product.title | escape }}">
+          <img src="{{ product.featured_image | img_url: '400x500' }}" alt="{{ product.title | escape }}">
+          <p>{{ product.title }}</p>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
   </div>
-{% endif %}
+</div>
