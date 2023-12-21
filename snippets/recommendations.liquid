@@ -4,7 +4,7 @@
     {% for product in collections.all.products limit:6 %}
       <div class="product-grid-item">
         <a href="{{ product.url }}" title="{{ product.title | escape }}">
-          <img src="{{ product.featured_image | img_url: '200x250' }}" alt="{{ product.title | escape }}">
+          <img src="{{ product.featured_image | img_url: '400x500' }}" alt="{{ product.title | escape }}">
           <p>{{ product.title }}</p>
           <p>{{ product.price | money }}</p>
         </a>
