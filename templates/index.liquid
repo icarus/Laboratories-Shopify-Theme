@@ -1,6 +1,6 @@
-
+{% paginate collections.frontpage.products by 24 %}
   <div class="product-grid">
-    {% for product in collections.frontpage.products limit:24 %}
+    {% for product in collections.frontpage.products %}
       <div class="product-grid-item">
         <a href="{{ product.url | within: collection }}">
           <div class="image-container">
@@ -17,3 +17,16 @@
       </div>
     {% endfor %}
   </div>
+
+  <div class="pagination">
+    {% if paginate.pages > 1 %}
+      {% for part in paginate.parts %}
+        {% if part.is_link %}
+          <a href="{{ part.url }}">{{ part.title }}</a>
+        {% elsif part.title %}
+          <span>{{ part.title }}</span>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endpaginate %}
