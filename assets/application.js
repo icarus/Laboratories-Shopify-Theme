@@ -24,6 +24,26 @@ $(document).ready(function() {
 
       $quantityText.text(newQuantity);
 
+      $.ajax({
+        type: 'POST',
+        url: '/cart/change.js', // Endpoint provided by Shopify to update cart items
+        data: {
+          id: itemId,
+          quantity: newQuantity
+        },
+        dataType: 'json',
+        success: function(response) {
+          // Assuming the response contains the whole cart object
+          // Update the item count on the frontend
+          $('.cart-item-count').text(response.item_count); // Adjust the selector as needed
+          // Update the total price, etc.
+        },
+        error: function(XMLHttpRequest, textStatus) {
+          // Handle errors
+          console.log('Error updating cart: ' + textStatus);
+        }
+      });
+
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
       }
