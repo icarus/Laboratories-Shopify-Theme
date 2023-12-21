@@ -130,6 +130,7 @@ $(document).ready(function() {
     },
     closeCart = function() {
       $('html').removeClass('mini-cart-open');
+      location.reload();
     },
     onCartButtonClick = function(event) {
       event.preventDefault();
