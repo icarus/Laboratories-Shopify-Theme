@@ -47,7 +47,7 @@
             {% if item.original_line_price != item.line_price %}
               <p>{{ item.original_line_price | money }}</p>
             {% endif %}
-            <p>{{ item.line_price | money }}</p>
+            <a>{{ item.line_price | money }}</a>
             {% for discount in item.discounts %}
               <p>{{ discount.title }}</p>
             {% endfor %}
@@ -62,7 +62,7 @@
       <div class="cart-subtotal">
         <div class="subtotal-text">
           <p>Subtotal</p>
-          <a class="last-nav-item">{{ cart.total_price | money_with_currency }}</a>
+          <p class="last-nav-item">{{ cart.total_price | money_with_currency }}</p>
         </div>
         <p class="opacity-quarter">TAX INCLUDED. SHIPPING CALCULATED AT CHECKOUT.</p>
       </div>
