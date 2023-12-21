@@ -25,7 +25,7 @@ $(document).ready(function() {
       $quantityText.text(newQuantity);
 
       $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/cart', // The URL for the cart update endpoint
         data: {
           id: itemId, // The unique identifier for the cart item
