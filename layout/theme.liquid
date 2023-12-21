@@ -21,6 +21,7 @@
   <main role="main">
     {% include 'navbar' %}
     {{ content_for_layout }}
+    {% include 'footer' %}
   </main>
   {% if template != 'cart'  %}
     {% include 'mini-cart' %}
