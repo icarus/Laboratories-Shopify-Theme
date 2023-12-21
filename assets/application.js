@@ -24,25 +24,6 @@ $(document).ready(function() {
 
       $quantityText.text(newQuantity);
 
-      $.ajax({
-        type: 'GET',
-        url: '/cart/update',
-        data: {
-          id: itemId, // The unique identifier for the cart item
-          quantity: newQuantity // The new quantity
-        },
-        dataType: 'json',
-        success: function(response) {
-          // Assuming the response contains the updated cart item count
-          $cartItemCount.text(response.item_count);
-          // You can also update other parts of the UI as necessary here
-        },
-        error: function(XMLHttpRequest, textStatus) {
-          // Handle errors (e.g., item stock issues, server errors)
-          alert('Error updating cart. Please try again.');
-        }
-      });
-
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
       }
