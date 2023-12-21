@@ -1,5 +1,4 @@
 <div class="product-grid">
-  HOLAAAA
   {% for product in collections.frontpage.products limit:24 %}
     <div class="product-grid-item">
       <a href="{{ product.url | within: collection }}">
@@ -16,5 +15,4 @@
       </div>
     </div>
   {% endfor %}
-  HOLAAAA
 </div>
