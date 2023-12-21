@@ -30,13 +30,13 @@
 
       <!-- Page Number Links -->
       <div class="numbers">
-      {% for part in paginate.parts %}
-        {% if part.is_link %}
-          <a href="{{ part.url }}">{{ part.title }}</a>
-        {% elsif part.title %}
-          <span>{{ part.title }}</span>
-        {% endif %}
-      {% endfor %}
+        {% for part in paginate.parts %}
+          {% if part.is_link %}
+            <a href="{{ part.url }}">{{ part.title }}</a>
+          {% elsif part.title %}
+            <span>{{ part.title }}</span>
+          {% endif %}
+        {% endfor %}
       </div>
 
       <!-- Next Page Link -->
