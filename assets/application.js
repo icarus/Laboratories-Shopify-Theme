@@ -20,9 +20,6 @@ $(document).ready(function() {
       let $field = $(this),
           itemId = $field.attr('id').split('-')[1],
           newQuantity = parseInt($field.val(), 10),
-          $quantityText = $('#QuantityText-' + itemId);
-
-      $quantityText.text(newQuantity);
 
       if (shouldDisableMinus) {
         $minusButton.prop('disabled', true);
