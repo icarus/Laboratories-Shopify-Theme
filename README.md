@@ -1,7 +1,7 @@
 ![Cover](https://github.com/icarus/Labs-Free-Shopify-Theme/assets/119902348/ae7e5a3c-13f1-4935-9bb0-6b4fdb235dad)
-
-
-
+\
+\
+\
 > :warning: This theme is currently under active development. Some features may be incomplete or subject to change. 
 
 Welcome to **LABS**, a **free Shopify** theme designed for clothing brands. Our theme is tailored to showcase your collections with elegance and style, providing an immersive shopping experience for your customers.
