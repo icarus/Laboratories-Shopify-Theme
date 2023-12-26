@@ -1,13 +1,11 @@
-![Covel](https://github.com/icarus/Labs-Free-Shopify-Theme/assets/119902348/94fdba18-5500-4d2e-a2f2-59ea5510cecf)
-
 > :warning: This theme is currently under active development. Some features may be incomplete or subject to change. 
 
 Welcome to **LABS**, a **free Shopify** theme designed for clothing brands. Our theme is tailored to showcase your collections with elegance and style, providing an immersive shopping experience for your customers.
 
+![Demo](https://github.com/icarus/Labs-Free-Shopify-Theme/assets/119902348/aa558a8c-deb4-4e62-a6b7-c0caafbd93fe)
+
 
 ## Theme Features
-
-![Demo](https://github.com/icarus/Labs-Free-Shopify-Theme/assets/119902348/aa558a8c-deb4-4e62-a6b7-c0caafbd93fe)
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices to ensure your store looks great on any device.
 - **Multiple Product Layouts**: Choose from a variety of product page templates to best showcase your apparel.
